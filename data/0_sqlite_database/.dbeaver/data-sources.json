@@ -1,0 +1,35 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1978a56ac8f-740907cefd382a2f": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "projeto_censo_escolar_2024.db",
+			"save-password": true,
+			"configuration": {
+				"database": "/home/fcsr/Documentos/Dbeaver/qualidade_dados_censo_escolar_2024/data/0_sqlite_database/projeto_censo_escolar_2024.db",
+				"url": "jdbc:sqlite:/home/fcsr/Documentos/Dbeaver/qualidade_dados_censo_escolar_2024/data/0_sqlite_database/projeto_censo_escolar_2024.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Desenvolvimento",
+			"color": "255,255,255",
+			"description": "Banco de dados de desenvolvimento",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
