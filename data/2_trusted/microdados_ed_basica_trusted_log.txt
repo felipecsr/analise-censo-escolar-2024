@@ -1,0 +1,22 @@
+=== ETL Trusted - Execução iniciada ===
+Início: 2025-06-20 21:31:58
+
+Variáveis textuais (Char): 18 colunas
+Variáveis datas: 2 colunas
+Variáveis binárias/flags: 256 colunas
+Linhas lidas da base RAW: 215545
+Padronização textual aplicada às colunas: ['NO_REGIAO', 'NO_UF', 'SG_UF', 'NO_MUNICIPIO', 'NO_REGIAO_GEOG_INTERM', 'NO_REGIAO_GEOG_IMED', 'NO_MESORREGIAO', 'NO_MICRORREGIAO', 'NO_DISTRITO', 'NO_ENTIDADE', 'DS_ENDERECO', 'NU_ENDERECO', 'DS_COMPLEMENTO', 'NO_BAIRRO', 'CO_CEP', 'CO_ORGAO_REGIONAL', 'NU_CNPJ_ESCOLA_PRIVADA', 'NU_CNPJ_MANTENEDORA']
+Tratamento campos binários (256 colunas):
+  - Total de campos processados: 47850990
+  - Convertidos para inteiro (0/1): 34409814
+  - Convertidos para null (vazios/Nan): 13017404
+  - Mantidos sem alteração (outros valores): 423772
+Padronização aplicada às datas. Novos valores nulos (NaT) criados: 362130
+Nenhuma linha duplicada detectada.
+Linhas finais após remoção de duplicatas: 215545
+
+Arquivo trusted salvo em: /home/fcsr/Documentos/Dbeaver/qualidade_dados_censo_escolar_2024/data/2_trusted/microdados_ed_basica_trusted.csv
+
+Fim: 2025-06-20 21:33:20
+Tempo total de execução: 81.33 segundos (1.36 min | 0.02 h)
+=== ETL Trusted - Execução finalizada ===

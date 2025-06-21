@@ -1,1 +1,2 @@
-data/1_raw/sinopses_estatisticas_censo_escolar_2024.zip
+data/1_raw/microdados_ed_basica_2024.csv
+data/2_trusted/microdados_ed_basica_trusted.csv
