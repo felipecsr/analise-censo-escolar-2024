@@ -76,182 +76,196 @@ for campo in campos_tp:
                 df.drop(columns=[campo], inplace=True)
 log("Conversão categórica concluída.\n")
 
-# ========== 6. Força INT nos binários e quantitativos ==========
-log("Padronizando campos numéricos e binários...")
+# ========== 6. NÃO força INT nos binários e quantitativos ==========
+# Não aplicar fillna(0) nem .astype(int)! Os valores NA/Nan são preservados!
+log("Deixando campos numéricos/binários com valores originais (NA/Null preservados para análise de inconclusivos).")
+
 for campo in campos_numericos:
     if campo in df.columns:
-        df[campo] = pd.to_numeric(df[campo], errors="coerce").fillna(0).astype(int)
-log("Padronização concluída.\n")
+        # Não altera tipo! Deixe como str/NA para identificar corretamente no passo das flags.
+        pass
+log("Padronização pulada para preservar NA/Null.\n")
 
 # ========== 7. Cruza de variáveis e cria flags ==========
-log("Gerando flags de inconsistência e hipótese...")
+log("Gerando flags de inconsistência e hipótese com tratamento de inconclusivo...")
+
+# Função utilitária para aplicar a lógica das flags com 3 categorias
+def flag_apply(cond, cols):
+    def check(row):
+        if any(pd.isnull(row[col]) for col in cols):
+            return "Inconclusivo"
+        return "Sim" if cond(row) else "Não"
+    return check
 
 # 1. ERR_FLAG_LABINFO_SEM_ENERGIA
-df["ERR_FLAG_LABINFO_SEM_ENERGIA"] = (
-    (df["IN_LABORATORIO_INFORMATICA"] == 1) & (df["IN_ENERGIA_REDE_PUBLICA"] == 0)
-).astype(int)
+df["ERR_FLAG_LABINFO_SEM_ENERGIA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_LABORATORIO_INFORMATICA"]) == '1') and (str(row["IN_ENERGIA_REDE_PUBLICA"]) == '0'),
+               ["IN_LABORATORIO_INFORMATICA", "IN_ENERGIA_REDE_PUBLICA"]), axis=1)
 log("Flag ERR_FLAG_LABINFO_SEM_ENERGIA criada.")
 
 # 2. HIP_FLAG_RURAL_SEM_TRANSP
-df["HIP_FLAG_RURAL_SEM_TRANSP"] = (
-    (df["TP_LOCALIZACAO_TXT"] == "2 - Rural") & 
-    (df["QT_TRANSP_RESP_EST"] == 0) & (df["QT_TRANSP_RESP_MUN"] == 0)
-).astype(int)
+df["HIP_FLAG_RURAL_SEM_TRANSP"] = df.apply(
+    flag_apply(lambda row: (row["TP_LOCALIZACAO_TXT"] == "2 - Rural") and
+                        (str(row["QT_TRANSP_RESP_EST"]) == '0') and (str(row["QT_TRANSP_RESP_MUN"]) == '0'),
+               ["TP_LOCALIZACAO_TXT", "QT_TRANSP_RESP_EST", "QT_TRANSP_RESP_MUN"]), axis=1)
 log("Flag HIP_FLAG_RURAL_SEM_TRANSP criada.")
 
 # 3. ERR_FLAG_PRIVADA_VERBA_PUBLICA
-df["ERR_FLAG_PRIVADA_VERBA_PUBLICA"] = (
-    (df["TP_DEPENDENCIA_TXT"] == "4 - Privada") & 
-    (df["IN_PODER_PUBLICO_PARCERIA"] == 1)
-).astype(int)
+df["ERR_FLAG_PRIVADA_VERBA_PUBLICA"] = df.apply(
+    flag_apply(lambda row: (row["TP_DEPENDENCIA_TXT"] == "4 - Privada") and (str(row["IN_PODER_PUBLICO_PARCERIA"]) == '1'),
+               ["TP_DEPENDENCIA_TXT", "IN_PODER_PUBLICO_PARCERIA"]), axis=1)
 log("Flag ERR_FLAG_PRIVADA_VERBA_PUBLICA criada.")
 
 # 4. ERR_FLAG_INFANTIL_SEM_BANHEIRO
-df["ERR_FLAG_INFANTIL_SEM_BANHEIRO"] = (
-    (df["IN_INF"] == 1) & (df["IN_BANHEIRO_EI"] == 0)
-).astype(int)
+df["ERR_FLAG_INFANTIL_SEM_BANHEIRO"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_INF"]) == '1') and (str(row["IN_BANHEIRO_EI"]) == '0'),
+               ["IN_INF", "IN_BANHEIRO_EI"]), axis=1)
 log("Flag ERR_FLAG_INFANTIL_SEM_BANHEIRO criada.")
 
 # 5. HIP_FLAG_BIBLIOTECA_SEM_BIBLIOTECARIO
-df["HIP_FLAG_BIBLIOTECA_SEM_BIBLIOTECARIO"] = (
-    ((df["IN_BIBLIOTECA"] == 1) | (df["IN_BIBLIOTECA_SALA_LEITURA"] == 1)) &
-    ((df["IN_PROF_BIBLIOTECARIO"].fillna(0) == 0) & (df["QT_PROF_BIBLIOTECARIO"].fillna(0) == 0))
-).astype(int)
+df["HIP_FLAG_BIBLIOTECA_SEM_BIBLIOTECARIO"] = df.apply(
+    flag_apply(lambda row: ((str(row["IN_BIBLIOTECA"]) == '1') or (str(row["IN_BIBLIOTECA_SALA_LEITURA"]) == '1')) and
+                        ((pd.isnull(row["IN_PROF_BIBLIOTECARIO"]) or str(row["IN_PROF_BIBLIOTECARIO"]) == '0') and
+                         (pd.isnull(row["QT_PROF_BIBLIOTECARIO"]) or str(row["QT_PROF_BIBLIOTECARIO"]) == '0')),
+               ["IN_BIBLIOTECA", "IN_BIBLIOTECA_SALA_LEITURA", "IN_PROF_BIBLIOTECARIO", "QT_PROF_BIBLIOTECARIO"]), axis=1)
 log("Flag HIP_FLAG_BIBLIOTECA_SEM_BIBLIOTECARIO criada.")
 
 # 6. ERR_FLAG_INTERNET_SEM_PC
-df["ERR_FLAG_INTERNET_SEM_PC"] = (
-    (df["IN_INTERNET"] == 1) & (df["IN_COMPUTADOR"] == 0)
-).astype(int)
+df["ERR_FLAG_INTERNET_SEM_PC"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_INTERNET"]) == '1') and (str(row["IN_COMPUTADOR"]) == '0'),
+               ["IN_INTERNET", "IN_COMPUTADOR"]), axis=1)
 log("Flag ERR_FLAG_INTERNET_SEM_PC criada.")
 
 # 7. ERR_FLAG_ALIMENTACAO_PRIVADA
-df["ERR_FLAG_ALIMENTACAO_PRIVADA"] = (
-    (df["TP_DEPENDENCIA_TXT"] == "4 - Privada") & (df["IN_ALIMENTACAO"] == 1)
-).astype(int)
+df["ERR_FLAG_ALIMENTACAO_PRIVADA"] = df.apply(
+    flag_apply(lambda row: (row["TP_DEPENDENCIA_TXT"] == "4 - Privada") and (str(row["IN_ALIMENTACAO"]) == '1'),
+               ["TP_DEPENDENCIA_TXT", "IN_ALIMENTACAO"]), axis=1)
 log("Flag ERR_FLAG_ALIMENTACAO_PRIVADA criada.")
 
 # 8. ERR_FLAG_MEDIO_SEM_PROF
-df["ERR_FLAG_MEDIO_SEM_PROF"] = (
-    (df["IN_MED"] == 1) & (df["QT_DOC_MED"] == 0)
-).astype(int)
+df["ERR_FLAG_MEDIO_SEM_PROF"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_MED"]) == '1') and (str(row["QT_DOC_MED"]) == '0'),
+               ["IN_MED", "QT_DOC_MED"]), axis=1)
 log("Flag ERR_FLAG_MEDIO_SEM_PROF criada.")
 
 # 9. HIP_FLAG_ESP_SEM_SALA_ADAPTADA
-df["HIP_FLAG_ESP_SEM_SALA_ADAPTADA"] = (
-    (df["IN_ESP"] == 1) & (df["IN_SALA_ATENDIMENTO_ESPECIAL"] == 0)
-).astype(int)
+df["HIP_FLAG_ESP_SEM_SALA_ADAPTADA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_ESP"]) == '1') and (str(row["IN_SALA_ATENDIMENTO_ESPECIAL"]) == '0'),
+               ["IN_ESP", "IN_SALA_ATENDIMENTO_ESPECIAL"]), axis=1)
 log("Flag HIP_FLAG_ESP_SEM_SALA_ADAPTADA criada.")
 
 # 10. ERR_FLAG_DIRETORIA_SEM_EQUIPE
-df["ERR_FLAG_DIRETORIA_SEM_EQUIPE"] = (
-    (df["IN_PROF_COORDENADOR"] == 1) & (df["QT_PROF_ADMINISTRATIVOS"] == 0)
-).astype(int)
+df["ERR_FLAG_DIRETORIA_SEM_EQUIPE"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_PROF_COORDENADOR"]) == '1') and (str(row["QT_PROF_ADMINISTRATIVOS"]) == '0'),
+               ["IN_PROF_COORDENADOR", "QT_PROF_ADMINISTRATIVOS"]), axis=1)
 log("Flag ERR_FLAG_DIRETORIA_SEM_EQUIPE criada.")
 
 # 11. ERR_FLAG_ETAPA_SEM_ALUNO
-df["ERR_FLAG_ETAPA_SEM_ALUNO"] = (
-    (df["IN_FUND"] == 1) & (df["QT_MAT_FUND"] == 0)
-).astype(int)
+df["ERR_FLAG_ETAPA_SEM_ALUNO"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_FUND"]) == '1') and (str(row["QT_MAT_FUND"]) == '0'),
+               ["IN_FUND", "QT_MAT_FUND"]), axis=1)
 log("Flag ERR_FLAG_ETAPA_SEM_ALUNO criada.")
 
 # 12. HIP_FLAG_URBANA_SEM_ESGOTO
-df["HIP_FLAG_URBANA_SEM_ESGOTO"] = (
-    (df["TP_LOCALIZACAO_TXT"] == "1 - Urbana") & (df["IN_ESGOTO_REDE_PUBLICA"] == 0)
-).astype(int)
+df["HIP_FLAG_URBANA_SEM_ESGOTO"] = df.apply(
+    flag_apply(lambda row: (row["TP_LOCALIZACAO_TXT"] == "1 - Urbana") and (str(row["IN_ESGOTO_REDE_PUBLICA"]) == '0'),
+               ["TP_LOCALIZACAO_TXT", "IN_ESGOTO_REDE_PUBLICA"]), axis=1)
 log("Flag HIP_FLAG_URBANA_SEM_ESGOTO criada.")
 
 # 13. ERR_FLAG_ALIMENTACAO_SEM_AGUA
-df["ERR_FLAG_ALIMENTACAO_SEM_AGUA"] = (
-    (df["IN_AGUA_POTAVEL"] == 0) & (df["IN_ALIMENTACAO"] == 1)
-).astype(int)
+df["ERR_FLAG_ALIMENTACAO_SEM_AGUA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_AGUA_POTAVEL"]) == '0') and (str(row["IN_ALIMENTACAO"]) == '1'),
+               ["IN_AGUA_POTAVEL", "IN_ALIMENTACAO"]), axis=1)
 log("Flag ERR_FLAG_ALIMENTACAO_SEM_AGUA criada.")
 
 # 14. ERR_FLAG_REMOTO_SEM_INTERNET
-df["ERR_FLAG_REMOTO_SEM_INTERNET"] = (
-    (df["IN_INTERNET"] == 0) & 
-    ((df["IN_MEDIACAO_SEMIPRESENCIAL"] == 1) | (df["IN_MEDIACAO_EAD"] == 1))
-).astype(int)
+df["ERR_FLAG_REMOTO_SEM_INTERNET"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_INTERNET"]) == '0') and (
+        (str(row["IN_MEDIACAO_SEMIPRESENCIAL"]) == '1') or (str(row["IN_MEDIACAO_EAD"]) == '1')),
+               ["IN_INTERNET", "IN_MEDIACAO_SEMIPRESENCIAL", "IN_MEDIACAO_EAD"]), axis=1)
 log("Flag ERR_FLAG_REMOTO_SEM_INTERNET criada.")
 
 # 15. HIP_FLAG_PCD_SEM_ACESSIBILIDADE
-df["HIP_FLAG_PCD_SEM_ACESSIBILIDADE"] = (
-    (df["IN_ACESSIBILIDADE_RAMPAS"] == 0) & 
-    (df["IN_ACESSIBILIDADE_SINALIZACAO"] == 0) & 
-    (df["IN_ACESSIBILIDADE_CORRIMAO"] == 0) &
-    ((df["QT_MAT_ESP_CC"] > 0) | (df["QT_MAT_ESP_CE"] > 0))
-).astype(int)
+df["HIP_FLAG_PCD_SEM_ACESSIBILIDADE"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_ACESSIBILIDADE_RAMPAS"]) == '0') and (str(row["IN_ACESSIBILIDADE_SINALIZACAO"]) == '0') and
+                        (str(row["IN_ACESSIBILIDADE_CORRIMAO"]) == '0') and
+                        ((str(row["QT_MAT_ESP_CC"]).isdigit() and int(row["QT_MAT_ESP_CC"]) > 0) or
+                         (str(row["QT_MAT_ESP_CE"]).isdigit() and int(row["QT_MAT_ESP_CE"]) > 0)),
+               ["IN_ACESSIBILIDADE_RAMPAS", "IN_ACESSIBILIDADE_SINALIZACAO", "IN_ACESSIBILIDADE_CORRIMAO", "QT_MAT_ESP_CC", "QT_MAT_ESP_CE"]), axis=1)
 log("Flag HIP_FLAG_PCD_SEM_ACESSIBILIDADE criada.")
 
 # 16. ERR_FLAG_CRECHE_COM_MEDIO
-df["ERR_FLAG_CRECHE_COM_MEDIO"] = (
-    (df["IN_INF_CRE"] == 1) & (df["IN_MED"] == 1)
-).astype(int)
+df["ERR_FLAG_CRECHE_COM_MEDIO"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_INF_CRE"]) == '1') and (str(row["IN_MED"]) == '1'),
+               ["IN_INF_CRE", "IN_MED"]), axis=1)
 log("Flag ERR_FLAG_CRECHE_COM_MEDIO criada.")
 
 # 17. HIP_FLAG_ATIV_COMP_PARTE_DIA
-df["HIP_FLAG_ATIV_COMP_PARTE_DIA"] = (
-    (df["TP_ATIVIDADE_COMPLEMENTAR_TXT"].notna()) & 
-    (df["TP_ATIVIDADE_COMPLEMENTAR_TXT"] != "0 - Não possui") & 
-    (df["IN_DIURNO"] == 1)
-).astype(int)
+df["HIP_FLAG_ATIV_COMP_PARTE_DIA"] = df.apply(
+    flag_apply(lambda row: (pd.notnull(row["TP_ATIVIDADE_COMPLEMENTAR_TXT"])) and
+                        (row["TP_ATIVIDADE_COMPLEMENTAR_TXT"] != "0 - Não possui") and (str(row["IN_DIURNO"]) == '1'),
+               ["TP_ATIVIDADE_COMPLEMENTAR_TXT", "IN_DIURNO"]), axis=1)
 log("Flag HIP_FLAG_ATIV_COMP_PARTE_DIA criada.")
 
 # 18. ERR_FLAG_MULTIMIDIA_SEM_ENERGIA
-df["ERR_FLAG_MULTIMIDIA_SEM_ENERGIA"] = (
-    (df["IN_ENERGIA_REDE_PUBLICA"] == 0) & (df["IN_EQUIP_MULTIMIDIA"] == 1)
-).astype(int)
+df["ERR_FLAG_MULTIMIDIA_SEM_ENERGIA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_ENERGIA_REDE_PUBLICA"]) == '0') and (str(row["IN_EQUIP_MULTIMIDIA"]) == '1'),
+               ["IN_ENERGIA_REDE_PUBLICA", "IN_EQUIP_MULTIMIDIA"]), axis=1)
 log("Flag ERR_FLAG_MULTIMIDIA_SEM_ENERGIA criada.")
 
 # 19. HIP_FLAG_RURAL_COM_INTERNET
-df["HIP_FLAG_RURAL_COM_INTERNET"] = (
-    (df["TP_LOCALIZACAO_TXT"] == "2 - Rural") & (df["IN_INTERNET"] == 1)
-).astype(int)
+df["HIP_FLAG_RURAL_COM_INTERNET"] = df.apply(
+    flag_apply(lambda row: (row["TP_LOCALIZACAO_TXT"] == "2 - Rural") and (str(row["IN_INTERNET"]) == '1'),
+               ["TP_LOCALIZACAO_TXT", "IN_INTERNET"]), axis=1)
 log("Flag HIP_FLAG_RURAL_COM_INTERNET criada.")
 
 # 20. HIP_FLAG_ESTADUAL_ANOS_INICIAIS
-df["HIP_FLAG_ESTADUAL_ANOS_INICIAIS"] = (
-    (df["TP_DEPENDENCIA_TXT"] == "2 - Estadual") & (df["QT_MAT_FUND_AI"] > 0)
-).astype(int)
+df["HIP_FLAG_ESTADUAL_ANOS_INICIAIS"] = df.apply(
+    flag_apply(lambda row: (row["TP_DEPENDENCIA_TXT"] == "2 - Estadual") and
+                        (str(row["QT_MAT_FUND_AI"]).isdigit() and int(row["QT_MAT_FUND_AI"]) > 0),
+               ["TP_DEPENDENCIA_TXT", "QT_MAT_FUND_AI"]), axis=1)
 log("Flag HIP_FLAG_ESTADUAL_ANOS_INICIAIS criada.")
 
 # 21. HIP_FLAG_INDIGENA_SEM_LINGUA
-df["HIP_FLAG_INDIGENA_SEM_LINGUA"] = (
-    (df["IN_EDUCACAO_INDIGENA"] == 1) & 
-    ((df["CO_LINGUA_INDIGENA_1"].isna()) | (df["CO_LINGUA_INDIGENA_1"] == 0))
-).astype(int)
+df["HIP_FLAG_INDIGENA_SEM_LINGUA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_EDUCACAO_INDIGENA"]) == '1') and
+                        (pd.isnull(row["CO_LINGUA_INDIGENA_1"]) or str(row["CO_LINGUA_INDIGENA_1"]) == '0'),
+               ["IN_EDUCACAO_INDIGENA", "CO_LINGUA_INDIGENA_1"]), axis=1)
 log("Flag HIP_FLAG_INDIGENA_SEM_LINGUA criada.")
 
 # 22. HIP_FLAG_FEDERAL_INFANTIL
-df["HIP_FLAG_FEDERAL_INFANTIL"] = (
-    (df["TP_DEPENDENCIA_TXT"] == "1 - Federal") & (df["IN_INF"] == 1)
-).astype(int)
+df["HIP_FLAG_FEDERAL_INFANTIL"] = df.apply(
+    flag_apply(lambda row: (row["TP_DEPENDENCIA_TXT"] == "1 - Federal") and (str(row["IN_INF"]) == '1'),
+               ["TP_DEPENDENCIA_TXT", "IN_INF"]), axis=1)
 log("Flag HIP_FLAG_FEDERAL_INFANTIL criada.")
 
 # 23. HIP_FLAG_LAB_CIENCIA_SEM_INFO
-df["HIP_FLAG_LAB_CIENCIA_SEM_INFO"] = (
-    (df["IN_LABORATORIO_CIENCIAS"] == 1) & (df["IN_LABORATORIO_INFORMATICA"] == 0)
-).astype(int)
+df["HIP_FLAG_LAB_CIENCIA_SEM_INFO"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_LABORATORIO_CIENCIAS"]) == '1') and (str(row["IN_LABORATORIO_INFORMATICA"]) == '0'),
+               ["IN_LABORATORIO_CIENCIAS", "IN_LABORATORIO_INFORMATICA"]), axis=1)
 log("Flag HIP_FLAG_LAB_CIENCIA_SEM_INFO criada.")
 
 # 24. HIP_FLAG_ESGOTO_NAO_COM_AGUA
-df["HIP_FLAG_ESGOTO_NAO_COM_AGUA"] = (
-    (df["IN_ESGOTO_REDE_PUBLICA"] == 0) & (df["IN_AGUA_POTAVEL"] == 1)
-).astype(int)
+df["HIP_FLAG_ESGOTO_NAO_COM_AGUA"] = df.apply(
+    flag_apply(lambda row: (str(row["IN_ESGOTO_REDE_PUBLICA"]) == '0') and (str(row["IN_AGUA_POTAVEL"]) == '1'),
+               ["IN_ESGOTO_REDE_PUBLICA", "IN_AGUA_POTAVEL"]), axis=1)
 log("Flag HIP_FLAG_ESGOTO_NAO_COM_AGUA criada.")
 
 # 25. ERR_FLAG_CONFLITO_ACESSIBILIDADE
-df["ERR_FLAG_CONFLITO_ACESSIBILIDADE"] = (
-    ((df["IN_ACESSIBILIDADE_RAMPAS"] == 1) | 
-     (df["IN_ACESSIBILIDADE_SINALIZACAO"] == 1) | 
-     (df["IN_ACESSIBILIDADE_CORRIMAO"] == 1)) & 
-    (df["IN_ACESSIBILIDADE_INEXISTENTE"] == 1)
-).astype(int)
+df["ERR_FLAG_CONFLITO_ACESSIBILIDADE"] = df.apply(
+    flag_apply(lambda row: ((str(row["IN_ACESSIBILIDADE_RAMPAS"]) == '1') or
+                            (str(row["IN_ACESSIBILIDADE_SINALIZACAO"]) == '1') or
+                            (str(row["IN_ACESSIBILIDADE_CORRIMAO"]) == '1')) and
+                           (str(row["IN_ACESSIBILIDADE_INEXISTENTE"]) == '1'),
+               ["IN_ACESSIBILIDADE_RAMPAS", "IN_ACESSIBILIDADE_SINALIZACAO", "IN_ACESSIBILIDADE_CORRIMAO", "IN_ACESSIBILIDADE_INEXISTENTE"]), axis=1)
 log("Flag ERR_FLAG_CONFLITO_ACESSIBILIDADE criada.")
 
+log("Todas as flags geradas.\n")
+
 # ========== 8. Score ERR e HIP ==========
-df["SCORE_ERR"] = df.filter(like="ERR_FLAG_").sum(axis=1)
-df["SCORE_HIP"] = df.filter(like="HIP_FLAG_").sum(axis=1)
+# Só conta "Sim" para score!
+df["SCORE_ERR"] = df[[c for c in df.columns if c.startswith("ERR_FLAG_")]].apply(lambda x: (x == "Sim").sum(), axis=1)
+df["SCORE_HIP"] = df[[c for c in df.columns if c.startswith("HIP_FLAG_")]].apply(lambda x: (x == "Sim").sum(), axis=1)
 log("Scores de inconsistências e hipóteses calculados.\n")
 
 # ========== 9. Seleciona colunas finais ==========
