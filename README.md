@@ -66,8 +66,8 @@ Os logs incluem informações como início/fim da execução, quantidade de linh
 
 Scripts principais disponíveis diretamente no repositório:
 
-- [ETL Trusted (`etl_trusted.py`)](data/2_trusted/etl_trusted.py)
-- [ETL Refined (`etl_refined.py`)](data/3_refined/etl_refined.py)
+- [ETL Trusted (`etl_trusted.py`)](/scripts/etl_trusted.py)
+- [ETL Refined (`etl_refined.py`)](/scripts/etl_refined.py)
 
 ---
 
