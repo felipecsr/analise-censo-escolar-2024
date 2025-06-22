@@ -18,47 +18,41 @@ Detectar e analisar falhas de preenchimento nas variáveis autodeclaradas do Cen
 
 1. **Exploração inicial**: leitura do dicionário de dados e observações iniciais sobre o CSV.
 2. **Construção das camadas de dados**:
-   - `raw`: dados brutos originais (ver observação sobre arquivos pesados abaixo).
-   - `trusted`: dados tratados, padronizados e com logs detalhados de execução.
-   - `refined`: estrutura final enriquecida com flags de inconsistências e logs de execução.
-3. **Validações e primeiros resultados**:
-   - **Trusted** já pronta e validada, garantindo consistência dos dados-base.
-   - **Refined** criada com flags de inconsistência para diagnósticos críticos.
-4. **Próximas etapas (em andamento)**:
-   - **Análise de nulos e padrões de preenchimento** (Jupyter Notebook): breve investigação exploratória dos campos críticos na camada trusted.
-   - **Visualizações e análise das flags** (Power BI): dashboards interativos mostrando distribuição das inconsistências por rede, região, tipo de escola, além de rankings e destaques visuais.
-   - Prints, GIFs e/ou vídeo explicativo serão incluídos ao final do processo.
+
+   * `raw`: dados brutos originais (ver observação sobre arquivos pesados abaixo).
+   * `trusted`: dados tratados, padronizados e com [log de execução](data/2_trusted/microdados_ed_basica_trusted_log.txt) — gerada via Python.
+   * `refined`: criada diretamente em SQL no SQLite, com 21 cruzamentos categorizados como "coerente", "inconsistente" ou "inconclusivo" — demonstrando domínio em modelagem analítica declarativa.
+3. **Análise exploratória em Jupyter**:
+
+   * Conexão com o banco SQLite.
+   * Categorização analítica das flags: diferenciação entre **erros de fato** e **hipóteses investigáveis**.
+   * Seleção dos principais cruzamentos de cada grupo.
+4. **Camada final para Power BI**:
+
+   * Nova view SQL com os principais cruzamentos selecionados.
+   * Power BI conectado diretamente ao SQLite, reforçando integração entre ferramentas e reuso de base local leve.
 
 ---
 
 ## ⚠️ Sobre os Arquivos de Dados (Boas Práticas)
 
-> **Atenção:**  
-> Os arquivos completos da camada **raw** e **trusted** ultrapassam 200MB cada.  
-> Por **boas práticas de versionamento** e para manter o repositório ágil, estes arquivos **NÃO são versionados** diretamente aqui.  
->  
-> - Os arquivos `.csv` completos estão disponíveis para download nos links abaixo.  
-> - O repositório traz apenas **samples** representativos, suficientes para navegação e revisão de pipeline.
-> - O pipeline está configurado para rodar com os arquivos full — baixe-os conforme instrução.
+> **Atenção:**
+> Os arquivos completos da camada **raw** e **trusted** ultrapassam 200MB cada.
+> Por **boas práticas de versionamento** e para manter o repositório ágil, estes arquivos **NÃO são versionados** diretamente aqui.
+
+* Os arquivos `.csv` completos estão disponíveis para download nos links abaixo.
+* O repositório traz apenas **samples** representativos, suficientes para navegação e revisão de pipeline.
+* O pipeline está configurado para rodar com os arquivos full — baixe-os conforme instrução.
 
 **Links para os dados completos:**
-- **raw:** [Download (Google Drive)](https://drive.google.com/file/d/1UW4RJnRswlulH92xpDo3apPfBG_pBqZt/view?usp=sharing)
-- **trusted:** [Download (Google Drive)](https://drive.google.com/file/d/1xRMo-NVvqqJtbARlXSxNHudO9U0CkByw/view?usp=sharing)
+
+* **raw:** [Download (Google Drive)](https://drive.google.com/file/d/1UW4RJnRswlulH92xpDo3apPfBG_pBqZt/view?usp=sharing)
+* **trusted:** [Download (Google Drive)](https://drive.google.com/file/d/1xRMo-NVvqqJtbARlXSxNHudO9U0CkByw/view?usp=sharing)
 
 **Samples incluídos:**
-- `/data/raw/microdados_ed_basica_raw_sample.csv`
-- `/data/trusted/microdados_ed_basica_trusted_sample.csv`
 
----
-
-## 📑 Logs de Execução
-
-Para reforçar transparência, organização e monitoramento de escalabilidade, os logs de execução das principais etapas estão disponíveis:
-
-- [Log do ETL trusted](data/2_trusted/microdados_ed_basica_trusted_log.txt)
-- [Log do ETL refined](data/3_refined/microdados_ed_basica_refined_log.txt)
-
-Os logs incluem informações como início/fim da execução, quantidade de linhas processadas, padronizações aplicadas, tempo total, e eventuais mensagens relevantes.
+* `/data/raw/microdados_ed_basica_raw_sample.csv`
+* `/data/trusted/microdados_ed_basica_trusted_sample.csv`
 
 ---
 
@@ -66,59 +60,58 @@ Os logs incluem informações como início/fim da execução, quantidade de linh
 
 Scripts principais disponíveis diretamente no repositório:
 
-- [ETL Trusted (`etl_trusted.py`)](/scripts/etl_trusted.py)
-- [ETL Refined (`etl_refined.py`)](/scripts/etl_refined.py)
+* [ETL Trusted (Python)](/scripts/etl_trusted.py)
+* [ETL Refined (SQL)](/scripts/etl_refined.sql)
+* [`refined_top_flags_para_bi.sql`]*(em breve)*
 
 ---
 
-## 🧠 Principais Descobertas (provisórias)
+## 🧠 Principais Descobertas (em andamento)
 
-- [Exemplo] Cerca de 12% das escolas que declararam ter laboratório não possuem energia elétrica.
-- [Exemplo] As inconsistências concentram-se principalmente em redes municipais da região Norte.
-
-*Os dados acima são placeholders e serão atualizados conforme avançam as análises.*
+* As inconsistências variam em gravidade: algumas indicam erros de fato (ex: ausência de energia em escolas com laboratório); outras, hipóteses legítimas (ex: escola rural com internet).
+* A análise exploratória em Python permitiu classificar e priorizar as flags.
+* O Power BI apresentará apenas os cruzamentos com maior impacto.
 
 ---
 
 ## 🛠️ Ferramentas e Metodologias
 
-- **Banco de Dados:** SQLite + DBeaver
-- **Linguagens:** SQL, Python (pandas, seaborn)
-- **Visualização:** Power BI
-- **Organização:** Estrutura raw → trusted → refined
-- **Apresentação:** README + GIFs + vídeo (opcional)
+* **Banco de Dados:** SQLite + DBeaver
+* **Linguagens:** SQL, Python (pandas, seaborn, matplotlib, sqlite3)
+* **Visualização:** Power BI (conectado diretamente ao SQLite)
+* **Zonas de dados:** Estrutura raw → trusted (via Python) → refined (via SQL)
+* **Apresentação:** README + Notebook + .pbix + prints + logs
 
 ---
 
 ## 📂 Estrutura do Repositório
 
-- `/data/raw/`: CSVs originais (completo via link, sample versionado)
-- `/data/trusted/`: arquivos tratados (completo via link, sample versionado) + log
-- `/data/refined/`: base final enriquecida com flags + log
-- `/scripts/`: scripts ETL
-- `/notebooks/`: scripts exploratórios e análises em Python
-- `/powerbi/`: arquivos .pbix e prints dos dashboards
+* `/data/raw/`: CSVs originais (completo via link, sample versionado)
+* `/data/trusted/`: arquivos tratados (completo via link, sample versionado) + log
+* `/data/refined/`: base pronta para análise com 21 cruzamentos de variáveis
+* `/scripts/`: scripts ETL (Python e SQL)
+* `/notebooks/`: análise exploratória dos 21 cruzamentos e `missing values`, observando seus impactos 
+* `/powerbi/`: arquivo .pbix e visuais exportados
 
 ---
 
-## 🔭 Próximos Passos
+## 🔭 Em andamento
 
-- Explorar padrões de ausência de dados e anomalias relevantes na trusted via Jupyter Notebook.
-- Publicar dashboards no Power BI com análise visual das flags.
-- Incluir imagens, GIFs e vídeo explicativo no repositório.
-
-*Essas etapas estão em desenvolvimento e serão atualizadas em breve.*
+* Finalizar classificação das 21 flags no notebook.
+* Criar view final com principais flags para visualização.
+* Publicar dashboards no Power BI com análise visual.
+* Incluir prints, GIFs e vídeo explicativo no repositório.
 
 ---
 
 ## 🛡️ Licença
 
-Este projeto — *Qualidade dos Dados do Censo Escolar (2024)* — é distribuído sob a **GNU General Public License v3.0 (GPLv3)**.  
+Este projeto — *Qualidade dos Dados do Censo Escolar (2024)* — é distribuído sob a **GNU General Public License v3.0 (GPLv3)**.
 O código, scripts e modelagem estão cobertos por essa licença copyleft, garantindo liberdade de uso, modificação e redistribuição, desde que o mesmo modelo de licença seja mantido.
 
 **Autor:** Felipe Reis (2025)
 
 O conteúdo visual e textual (dashboards, imagens, análises) está licenciado sob **Creative Commons Atribuição 4.0 Internacional (CC-BY 4.0)**.
 
-- 🔗 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
-- 🔗 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+* 🔗 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+* 🔗 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
