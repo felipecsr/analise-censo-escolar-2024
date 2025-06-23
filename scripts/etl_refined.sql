@@ -1,11 +1,11 @@
- -- ============================================================================
+-- ============================================================================
 -- VIEW: microdados_ed_basica_refined
 -- OBJETIVO: Criar uma visão analítica da base trusted, contendo apenas:
 --    (1) colunas de identificação/segmentação da escola
 --    (2) 21 campos STATUS_* derivados de flags de inconsistência ou hipótese
+--    (3) coluna PROXY_PORTE (porte da escola) para uso em análises exploratórias
 -- Cada STATUS_* assume: 'COERENTE', 'INCONSISTENTE' ou 'INCONCLUSIVO'
 -- ============================================================================
-
 DROP VIEW IF EXISTS microdados_ed_basica_refined;
 
 CREATE VIEW microdados_ed_basica_refined AS
@@ -15,22 +15,32 @@ SELECT
   NO_REGIAO,
   SG_UF,
   NO_MUNICIPIO,
-  
--- Troca do valor numérico pelo significado - Dependência
-  CASE
-  WHEN TP_DEPENDENCIA = '1' THEN '1 - Federal'
-  WHEN TP_DEPENDENCIA = '2' THEN '2 - Estadual'
-  WHEN TP_DEPENDENCIA = '3' THEN '3 - Municipal'
-  WHEN TP_DEPENDENCIA = '4' THEN '4 - Privada'
-  ELSE 'Não informado'
-END AS TP_DEPENDENCIA_TXT,
 
--- Troca do valor numérico pelo significado - Localização
-CASE
-  WHEN TP_LOCALIZACAO = '1' THEN '1 - Urbana'
-  WHEN TP_LOCALIZACAO = '2' THEN '2 - Rural'
-  ELSE 'Não informado'
-END AS TP_LOCALIZACAO_TXT,
+  -- Troca do valor numérico pelo significado - Dependência
+  CASE
+    WHEN TP_DEPENDENCIA = '1' THEN '1 - Federal'
+    WHEN TP_DEPENDENCIA = '2' THEN '2 - Estadual'
+    WHEN TP_DEPENDENCIA = '3' THEN '3 - Municipal'
+    WHEN TP_DEPENDENCIA = '4' THEN '4 - Privada'
+    ELSE 'Não informado'
+  END AS TP_DEPENDENCIA_TXT,
+
+  -- Troca do valor numérico pelo significado - Localização
+  CASE
+    WHEN TP_LOCALIZACAO = '1' THEN '1 - Urbana'
+    WHEN TP_LOCALIZACAO = '2' THEN '2 - Rural'
+    ELSE 'Não informado'
+  END AS TP_LOCALIZACAO_TXT,
+
+  -- === PROXY DE PORTE ESCOLAR ===
+  -- Critério: Pequena (até 200 matrículas), Média (201 a 500), Grande (acima de 500)
+  -- Referência: Padrão do INEP e literatura educacional
+  QT_MAT_BAS,
+  CASE
+    WHEN QT_MAT_BAS <= 200 THEN 'Pequena'
+    WHEN QT_MAT_BAS <= 500 THEN 'Média'
+    ELSE 'Grande'
+  END AS PROXY_PORTE,
 
 -- 1. Declara possuir laboratório de informática, mas não tem energia elétrica pública
 CASE
@@ -151,34 +161,21 @@ CASE
   ELSE 'COERENTE'
 END AS STATUS_HIP_FLAG_ESTADUAL_ANOS_INICIAIS,
 
--- 18. Escola indígena, mas sem nenhuma das 3 línguas indígenas registradas
-CASE
-  WHEN IN_EDUCACAO_INDIGENA IS NULL 
-       OR (CO_LINGUA_INDIGENA_1 IS NULL AND CO_LINGUA_INDIGENA_2 IS NULL AND CO_LINGUA_INDIGENA_3 IS NULL)
-    THEN 'INCONCLUSIVO'
-  WHEN IN_EDUCACAO_INDIGENA = 1
-       AND (CO_LINGUA_INDIGENA_1 IS NULL OR CO_LINGUA_INDIGENA_1 = 0)
-       AND (CO_LINGUA_INDIGENA_2 IS NULL OR CO_LINGUA_INDIGENA_2 = 0)
-       AND (CO_LINGUA_INDIGENA_3 IS NULL OR CO_LINGUA_INDIGENA_3 = 0)
-    THEN 'INCONSISTENTE'
-  ELSE 'COERENTE'
-END AS STATUS_HIP_FLAG_INDIGENA_SEM_LINGUA,
-
--- 19. Escola federal oferecendo educação infantil
+-- 18. Escola federal oferecendo educação infantil
 CASE
   WHEN TP_DEPENDENCIA IS NULL OR IN_INF IS NULL THEN 'INCONCLUSIVO'
   WHEN TP_DEPENDENCIA = '1' AND IN_INF = 1 THEN 'INCONSISTENTE'
   ELSE 'COERENTE'
 END AS STATUS_HIP_FLAG_FEDERAL_INFANTIL,
 
--- 20. Ausência de esgoto, mas presença de água potável (infraestrutura contraditória)
+-- 19. Ausência de esgoto, mas presença de água potável (infraestrutura contraditória)
 CASE
   WHEN IN_ESGOTO_REDE_PUBLICA IS NULL OR IN_AGUA_POTAVEL IS NULL THEN 'INCONCLUSIVO'
   WHEN IN_ESGOTO_REDE_PUBLICA = 0 AND IN_AGUA_POTAVEL = 1 THEN 'INCONSISTENTE'
   ELSE 'COERENTE'
 END AS STATUS_HIP_FLAG_ESGOTO_NAO_COM_AGUA,
 
--- 21. Escola marca simultaneamente itens de acessibilidade e ausência total de acessibilidade
+-- 20. Escola marca simultaneamente itens de acessibilidade e ausência total de acessibilidade
 CASE
   WHEN IN_ACESSIBILIDADE_RAMPAS IS NULL OR IN_ACESSIBILIDADE_SINALIZACAO IS NULL OR IN_ACESSIBILIDADE_CORRIMAO IS NULL OR IN_ACESSIBILIDADE_INEXISTENTE IS NULL THEN 'INCONCLUSIVO'
   WHEN (IN_ACESSIBILIDADE_RAMPAS = 1 OR IN_ACESSIBILIDADE_SINALIZACAO = 1 OR IN_ACESSIBILIDADE_CORRIMAO = 1) AND IN_ACESSIBILIDADE_INEXISTENTE = 1 THEN 'INCONSISTENTE'
