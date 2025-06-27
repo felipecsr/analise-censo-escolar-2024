@@ -23,10 +23,10 @@ Entretanto, estudos recentes — como os conduzidos pela equipe do **Equidade.in
 ## 🎯 Objetivo
 
 Este projeto tem como objetivo **analisar a qualidade dos microdados do Censo Escolar 2024**, a partir de dois eixos principais:
-1. **Missing Data**: investigar padrões de ausência de preenchimento por tipo de variável.
+1. **Dados Faltantes**: investigar padrões de ausência de preenchimento por tipo de variável (vertical) e faltas por escola (horizontal).
 2. **Potenciais inconsistências**: identificar cruzamentos entre variáveis que podem sugerir sinais de contradição ou distorção.
 
-OBS: ambos objetivos terão suas distribuições observadas por rede de ensino, região e perfil da escola, afim de tentar tangibilizar se há perfil ou tratam-se de questões sistêmicas dna coleta do Censo.
+>Ambos objetivos terão suas distribuições observadas por rede de ensino, região e perfil da escola, afim de tentar tangibilizar se há perfil ou tratam-se de questões sistêmicas dna coleta do Censo.
 
 ---
 

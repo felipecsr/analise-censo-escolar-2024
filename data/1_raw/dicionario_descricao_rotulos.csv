@@ -1,0 +1,13 @@
+Rótulo,Descrição
+#,id unico da variável
+Tam.(1),tamanho da variável
+PREFIXO,"prefixo do nome da variavel, está ligado ao tipo"
+VARIAVEL,nome da variável
+TIPO,tipo nomeado originalmente pelo censo
+TIPO_ATUALIZADO,"tipo atualizado para o script de tratamento de dados (mais condizente, tecnicamente)"
+Tratamento para o Campo Não Preenchido,Quando um campo não está preenchido teremos duas opções NULL ou PREENCHIMENTO_VAZIO
+Campo de Verificação para PREENCHIMENTO_VAZIO,Quando PREENCHIMENTO_VAZIO há uma regra na célula que citará uma outra variável para consulta do valor e então uma decisão final de NULL ou PREENCHIMENTO_VAZIO
+SIGNIFICADO_LEGENDA,Significado da legenda
+GRUPO_CAT,Categoria da variável criada por mim
+SUB_GRUPO_CAT,Sub-categoria da variável criada por mim
+Descrição da Variável,"Descrição original do Censo, para cada variável"

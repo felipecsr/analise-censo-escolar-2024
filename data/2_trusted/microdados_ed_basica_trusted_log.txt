@@ -1,22 +1,47 @@
 === ETL Trusted - Execução iniciada ===
-Início: 2025-06-20 21:31:58
+Início: 2025-06-27 00:24:53
 
-Variáveis textuais (Char): 18 colunas
-Variáveis datas: 2 colunas
-Variáveis binárias/flags: 256 colunas
-Linhas lidas da base RAW: 215545
-Padronização textual aplicada às colunas: ['NO_REGIAO', 'NO_UF', 'SG_UF', 'NO_MUNICIPIO', 'NO_REGIAO_GEOG_INTERM', 'NO_REGIAO_GEOG_IMED', 'NO_MESORREGIAO', 'NO_MICRORREGIAO', 'NO_DISTRITO', 'NO_ENTIDADE', 'DS_ENDERECO', 'NU_ENDERECO', 'DS_COMPLEMENTO', 'NO_BAIRRO', 'CO_CEP', 'CO_ORGAO_REGIONAL', 'NU_CNPJ_ESCOLA_PRIVADA', 'NU_CNPJ_MANTENEDORA']
-Tratamento campos binários (256 colunas):
-  - Total de campos processados: 47850990
-  - Convertidos para inteiro (0/1): 34409814
-  - Convertidos para null (vazios/Nan): 13017404
-  - Mantidos sem alteração (outros valores): 423772
-Padronização aplicada às datas. Novos valores nulos (NaT) criados: 362130
-Nenhuma linha duplicada detectada.
-Linhas finais após remoção de duplicatas: 215545
-
+Lendo dicionário de dados...
+Lendo base RAW...
+Linhas lidas: 215545
+Aplicando regras de preenchimento vazio...
+Padronização textual aplicada a 18 colunas
+Conversão aplicada a campos numéricos (int/float)
+Padronização de datas aplicada a 2 colunas
+[TP_] Legenda malformada para TP_CATEGORIA_ESCOLA_PRIVADA: 1 - Particular
+ 2 - Comunitária
+ 3 - Confessional
+ 4 - Filantrópica
+ - Não aplicável para escolas públicas
+[TP_] Legenda malformada para TP_PODER_PUBLICO_PARCERIA: 1 - Municipal
+ 2 - Estadual
+ 3 - Estadual e Municipal
+ - Não aplicável para escolas sem parceria ou convênio com o poder público
+[TP_] Legenda malformada para TP_RESPONSAVEL_REGULAMENTACAO: 1 - Federal
+ 2 - Estadual
+ 3 - Municipal
+ 4 - Estadual e Municipal
+ 5 - Federal e Estadual
+ 6 - Federal, Estadual e Municipal
+ 9 - Não informado
+ - Não aplicável para escolas sem regulamentação
+[TP_] Legenda malformada para TP_OCUPACAO_PREDIO_ESCOLAR: 1 - Próprio
+ 2 - Alugado
+ 3 - Cedido
+ - Não aplicável para escolas que não ocupam prédio
+ escolar
+[TP_] Legenda malformada para TP_OCUPACAO_GALPAO: 1 - Próprio
+ 2 - Alugado
+ 3 - Cedido
+ 9 - Não informado
+ - Não aplicável para escolas que não ocupam
+ Galpão/Rancho/Paiol/Barracão
+[TP_] Legenda malformada para TP_INDIGENA_LINGUA: 1 - Somente em Língua Indígena
+ 2 - Somente em Língua Portuguesa
+ 3 - Em Língua Indígena e em Língua Portuguesa
+ - não aplicável (aplicável apenas para Escola Indígena)
+Conversão de códigos TP_ realizada para 16 colunas
+Linhas duplicadas removidas: 0
 Arquivo trusted salvo em: /home/fcsr/Documentos/Dbeaver/qualidade_dados_censo_escolar_2024/data/2_trusted/microdados_ed_basica_trusted.csv
-
-Fim: 2025-06-20 21:33:20
-Tempo total de execução: 81.33 segundos (1.36 min | 0.02 h)
+Tempo total: 117.66s
 === ETL Trusted - Execução finalizada ===
