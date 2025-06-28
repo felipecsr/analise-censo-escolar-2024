@@ -1,52 +1,22 @@
-#,Tam.(1),PREFIXO,VARIAVEL,TIPO,TIPO_ATUALIZADO,Tratamento para o Campo Não Preenchido,Campo de Verificação para PREENCHIMENTO_VAZIO,SIGNIFICADO_LEGENDA,GRUPO_CAT,SUB_GRUPO_CAT,Descrição da Variável
-1,4,NU_,NU_ANO_CENSO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Ano do Censo
-2,20,NO_,NO_REGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica
+"#","Tam.(1)","PREFIXO","VARIAVEL","TIPO","TIPO_ATUALIZADO","Tratamento para o Campo Não Preenchido","Campo de Verificação para PREENCHIMENTO_VAZIO","SIGNIFICADO_LEGENDA","GRUPO_CAT","SUB_GRUPO_CAT","Descrição da Variável"
 3,1,CO_,CO_REGIAO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Região Geográfica
-4,50,NO_,NO_UF,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Unidade da Federação
-5,2,SG_,SG_UF,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Sigla da Unidade da Federação
 6,2,CO_,CO_UF,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Unidade da Federação
-7,150,NO_,NO_MUNICIPIO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome do Município
 8,7,CO_,CO_MUNICIPIO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código do Município
-9,100,NO_,NO_REGIAO_GEOG_INTERM,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica Intermediária
 10,4,CO_,CO_REGIAO_GEOG_INTERM,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Região Geográfica Intermediária
-11,100,NO_,NO_REGIAO_GEOG_IMED,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica Imediata
 12,6,CO_,CO_REGIAO_GEOG_IMED,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Região Geográfica Imediata
-13,100,NO_,NO_MESORREGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Mesorregião
 14,4,CO_,CO_MESORREGIAO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Mesorregião
-15,100,NO_,NO_MICRORREGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Microrregião
 16,5,CO_,CO_MICRORREGIAO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Código da Microrregião
-17,100,NO_,NO_DISTRITO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Divisão Intramunicipal - Nome do Distrito
 18,9,CO_,CO_DISTRITO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Divisão Intramunicipal - Código do Distrito
-19,100,NO_,NO_ENTIDADE,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Identificação da Escola,Nome da Escola
 20,8,CO_,CO_ENTIDADE,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Identificação da Escola,Código da Escola
-21,1,TP_,TP_DEPENDENCIA,Num,integer,Sem preenchimento = NULL,,"1 - Federal
- 2 - Estadual
- 3 - Municipal
- 4 - Privada",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Dependência Administrativa
-22,1,TP_,TP_CATEGORIA_ESCOLA_PRIVADA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","1 - Particular
- 2 - Comunitária
- 3 - Confessional
- 4 - Filantrópica
- - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Categoria da escola privada
-23,1,TP_,TP_LOCALIZACAO,Num,integer,Sem preenchimento = NULL,,"1 - Urbana
- 2 - Rural",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Localização
-24,1,TP_,TP_LOCALIZACAO_DIFERENCIADA,Num,integer,Sem preenchimento = NULL,,"0 - A escola não está em área de localização diferenciada
- 1 - Área de assentamento
- 2 - Terra indígena
- 3 - Comunidade quilombola
- 8 - Área onde se localizam povos e comunidades tradicionais",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Localização diferenciada da escola
-25,100,DS_,DS_ENDERECO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Endereço
-26,10,NU_,NU_ENDERECO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Número
-27,20,DS_,DS_COMPLEMENTO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Complemento
-28,50,NO_,NO_BAIRRO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Bairro
 29,8,CO_,CO_CEP,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,CEP
-30,8,NU_,NU_DDD,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,DDD
-31,8,NU_,NU_TELEFONE,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Telefone
-32,1,TP_,TP_SITUACAO_FUNCIONAMENTO,Num,integer,Sem preenchimento = NULL,,"1 - Em Atividade
- 2 - Paralisada
- 3 - Extinta (ano do Censo)
- 4 - Extinta em Anos Anteriores",Dados Cadastrais e Administrativos,Situação de Funcionamento e Período Letivo,Situação de funcionamento
 33,5,CO_,CO_ORGAO_REGIONAL,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Situação de Funcionamento e Período Letivo,Código do Órgão Regional de Ensino
+76,8,CO_,CO_ESCOLA_SEDE_VINCULADA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","Sem preenchimento = string ""PREENCHIMENTO_VAZIO""",- Não aplicável para escolas que não possuem vínculo,Dados Cadastrais e Administrativos,Vínculo com Outras Instituições,Código da escola sede
+77,14,CO_,CO_IES_OFERTANTE,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","Sem preenchimento = string ""PREENCHIMENTO_VAZIO""",- Não aplicável para escolas que não possuem vínculo,Dados Cadastrais e Administrativos,Vínculo com Outras Instituições,Código da IES vinculada à escola
+297,4,CO_,CO_LINGUA_INDIGENA_1,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 1
+298,4,CO_,CO_LINGUA_INDIGENA_2,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 2
+299,4,CO_,CO_LINGUA_INDIGENA_3,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 3
+25,100,DS_,DS_ENDERECO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Endereço
+27,20,DS_,DS_COMPLEMENTO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Complemento
 34,20,DT_,DT_ANO_LETIVO_INICIO,Data,date,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Situação de Funcionamento e Período Letivo,Início do ano letivo
 35,20,DT_,DT_ANO_LETIVO_TERMINO,Data,date,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Situação de Funcionamento e Período Letivo,Término (previsão) do ano letivo
 36,1,IN_,IN_VINCULO_SECRETARIA_EDUCACAO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","TP_DEPENDENCIA != 4 - Privada, então NULL, else ""PREENCHIMENTO_VAZIO""","0 - Não
@@ -63,17 +33,9 @@
  - Não aplicável para escolas privadas",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Órgão ao qual a escola pública está vinculada - Outro órgão da administração pública
 40,1,IN_,IN_PODER_PUBLICO_PARCERIA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,"Parceria ou convênio com o poder público (parceria ou convênio firmado entre a Administração Pública e instituições privadas ou instituições públicas de ensino, autarquias e fundações da administração indireta e demais instituições de educação profissional técnica de nível médio dos serviços sociais autônomos que integram o sistema federal de ensino, para financiamento do atendimento educacional ou para a oferta do itinerário de formação técnica e profissional do ensino médio)"
-41,1,TP_,TP_PODER_PUBLICO_PARCERIA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_PODER_PUBLICO_PARCERIA = 1, NULL, else PREENCHIMENTO_VAZIO","1 - Municipal
- 2 - Estadual
- 3 - Estadual e Municipal
- - Não aplicável para escolas sem parceria ou convênio com o poder público",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Poder público responsável pela parceria ou convênio entre a Administração Pública e outras instituições
 42,1,IN_,IN_CONVENIADA_PP,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","0 - Não
  1 - Sim
  - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Conveniada com o poder público
-43,1,TP_,TP_CONVENIO_PODER_PUBLICO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_PODER_PUBLICO_PARCERIA = 1, NULL, else PREENCHIMENTO_VAZIO","1 - Municipal
- 2 - Estadual
- 3 - Estadual e Municipal
- - Não aplicável para escolas públicas ou privadas não conveniadas",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Dependência do convênio com o poder público
 44,1,IN_,IN_FORMA_CONT_TERMO_COLABORA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_PODER_PUBLICO_PARCERIA = 1, NULL, else PREENCHIMENTO_VAZIO","0 - Não
  1 - Sim
  - Não aplicável para escolas sem parceria/convênio",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Forma de contratação entre a Administração Pública e outras instituições - Termo de colaboração (Lei nº 13.019/2014)
@@ -161,30 +123,8 @@
 71,1,IN_,IN_MANT_ESCOLA_PRIVADA_S_FINS,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","0 - Não
  1 - Sim
  - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Informações da Mantenedora da Escola Privada,Mantenedora da escola privada - Instituições sem fins lucrativos
-72,14,NU_,NU_CNPJ_ESCOLA_PRIVADA,Char,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","99999999999999 - Sem declaração
- - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Informações da Mantenedora da Escola Privada,Número do CNPJ da escola privada
-73,14,NU_,NU_CNPJ_MANTENEDORA,Char,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","99999999999999 - Sem declaração
- - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Informações da Mantenedora da Escola Privada,Número do CNPJ da mantenedora principal da escola privada
-74,1,TP_,TP_REGULAMENTACAO,Num,integer,Sem preenchimento = NULL,,"0 - Não
- 1 - Sim
- 2 - Em tramitação",Dados Cadastrais e Administrativos,Regulamentação e Autorização da Escola,"Regulamentação/Autorização no conselho ou órgão municipal, estadual ou federal de educação"
-75,1,TP_,TP_RESPONSAVEL_REGULAMENTACAO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_REGULAMENTACAO = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Federal
- 2 - Estadual
- 3 - Municipal
- 4 - Estadual e Municipal
- 5 - Federal e Estadual
- 6 - Federal, Estadual e Municipal
- 9 - Não informado
- - Não aplicável para escolas sem regulamentação",Dados Cadastrais e Administrativos,Regulamentação e Autorização da Escola,Esfera administrativa do conselho ou órgão responsável pela Regulamentação/Autorização
-76,8,CO_,CO_ESCOLA_SEDE_VINCULADA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","Sem preenchimento = string ""PREENCHIMENTO_VAZIO""",- Não aplicável para escolas que não possuem vínculo,Dados Cadastrais e Administrativos,Vínculo com Outras Instituições,Código da escola sede
-77,14,CO_,CO_IES_OFERTANTE,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","Sem preenchimento = string ""PREENCHIMENTO_VAZIO""",- Não aplicável para escolas que não possuem vínculo,Dados Cadastrais e Administrativos,Vínculo com Outras Instituições,Código da IES vinculada à escola
 78,1,IN_,IN_LOCAL_FUNC_PREDIO_ESCOLAR,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Local de funcionamento da escola - Prédio Escolar
-79,1,TP_,TP_OCUPACAO_PREDIO_ESCOLAR,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_LOCAL_FUNC_PREDIO_ESCOLAR = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Próprio
- 2 - Alugado
- 3 - Cedido
- - Não aplicável para escolas que não ocupam prédio
- escolar",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Forma de ocupação do Prédio escolar
 80,1,IN_,IN_LOCAL_FUNC_SALAS_EMPRESA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Local de funcionamento da escola - Salas de empresa
 81,1,IN_,IN_LOCAL_FUNC_SOCIOEDUCATIVO,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -199,12 +139,6 @@
  1 - Sim",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Local de funcionamento da escola - Casa do professor
 86,1,IN_,IN_LOCAL_FUNC_GALPAO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Local de funcionamento da escola - Galpão/Rancho/Paiol/Barracão
-87,1,TP_,TP_OCUPACAO_GALPAO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","IN_LOCAL_FUNC_GALPAO = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Próprio
- 2 - Alugado
- 3 - Cedido
- 9 - Não informado
- - Não aplicável para escolas que não ocupam
- Galpão/Rancho/Paiol/Barracão",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Forma de ocupação do Galpão/Rancho/Paiol/Barracão
 88,1,IN_,IN_LOCAL_FUNC_SALAS_OUTRA_ESC,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Local de funcionamento da escola - Salas em outra escola
 89,1,IN_,IN_LOCAL_FUNC_OUTROS,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -391,12 +325,6 @@
  1 - Sim",Infraestrutura e Acessibilidade,Recursos de Acessibilidade em Vias de Circulação Interna,Recursos de acessibilidade para pessoas com deficiência ou mobilidade reduzida nas vias de circulação interna na escola - Nenhum dos recursos de acessibilidade listados
 177,1,IN_,IN_ACESSIBILIDADE_SINALIZACAO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Infraestrutura e Acessibilidade,Recursos de Acessibilidade em Vias de Circulação Interna,Recursos de acessibilidade para pessoas com deficiência ou mobilidade reduzida nas vias de circulação interna na escola - Sinalização/alarme luminoso
-178,4,QT_,QT_SALAS_EXISTENTES,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula existentes na escola
-179,4,QT_,QT_SALAS_UTILIZADAS_DENTRO,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola - Dentro do prédio
-180,4,QT_,QT_SALAS_UTILIZADAS_FORA,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola - Fora do prédio
-181,4,QT_,QT_SALAS_UTILIZADAS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola (dentro e fora do prédio)
-182,4,QT_,QT_SALAS_UTILIZA_CLIMATIZADAS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Condições das salas de aula utilizadas na escola (dentro e fora do prédio escolar) - Número de salas de aula climatizadas
-183,4,QT_,QT_SALAS_UTILIZADAS_ACESSIVEIS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Condições das salas de aula utilizadas na escola (dentro e fora do prédio escolar) - Número de salas de aula com acessibilidade para pessoas com deficiência ou mobilidade reduzida
 184,1,IN_,IN_EQUIP_PARABOLICA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos Técnico-Administrativos,Equipamentos existentes na escola para uso técnico e administrativo - Antena parabólica
 185,1,IN_,IN_COMPUTADOR,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -413,19 +341,14 @@
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos Técnico-Administrativos,"Nenhum dos equipamentos listados para uso técnico e administrativo - Antena parabólica, Computador, Copiadora, Impressora, Impressora Multifuncional ou Scanner"
 191,1,IN_,IN_EQUIP_DVD,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola para o processo ensino e aprendizagem - DVD/Blu-ray
-192,5,QT_,QT_EQUIP_DVD,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de DVD/Blu-ray
 193,1,IN_,IN_EQUIP_SOM,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola para o processo ensino e aprendizagem - Aparelho de som
-194,5,QT_,QT_EQUIP_SOM,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de som
 195,1,IN_,IN_EQUIP_TV,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola para o processo ensino e aprendizagem - Aparelho de televisão
-196,5,QT_,QT_EQUIP_TV,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de televisão
 197,1,IN_,IN_EQUIP_LOUSA_DIGITAL,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola para o processo ensino e aprendizagem - Lousa digital
-198,5,QT_,QT_EQUIP_LOUSA_DIGITAL,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Lousas digitais
 199,1,IN_,IN_EQUIP_MULTIMIDIA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola para o processo ensino e aprendizagem - Projetor Multimídia (Datashow)
-200,5,QT_,QT_EQUIP_MULTIMIDIA,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Projetores Multimídia (Datashow)
 201,1,IN_,IN_EQUIP_VIDEOCASSETE,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola - Videocassete
 202,1,IN_,IN_EQUIP_RETROPROJETOR,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -434,27 +357,12 @@
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola - Fax
 204,1,IN_,IN_EQUIP_FOTO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Equipamentos existentes na escola - Máquina fotográfica/Filmadora
-205,4,QT_,QT_EQUIP_VIDEOCASSETE,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Videocassetes
-206,4,QT_,QT_EQUIP_PARABOLICA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Antenas parabólicas
-207,4,QT_,QT_EQUIP_COPIADORA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Copiadoras
-208,4,QT_,QT_EQUIP_RETROPROJETOR,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Retroprojetores
-209,4,QT_,QT_EQUIP_IMPRESSORA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Impressoras
-210,4,QT_,QT_EQUIP_IMPRESSORA_MULT,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Impressoras Multifuncionais
-211,4,QT_,QT_EQUIP_FAX,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Fax
-212,4,QT_,QT_EQUIP_FOTO,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Máquinas Fotográficas/ Filmadoras
-213,4,QT_,QT_COMP_ALUNO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se QT_COMPUTADOR = 0 ""PREENCHIMENTO_VAZIO"", else NULL","- Não aplicável para escolas que não possuem
- computador",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos
 214,1,IN_,IN_DESKTOP_ALUNO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Computadores em uso pelos alunos - Computador de mesa (desktop)
-215,5,QT_,QT_DESKTOP_ALUNO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Computador de mesa (desktop)
 216,1,IN_,IN_COMP_PORTATIL_ALUNO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Computadores em uso pelos alunos - Computador portátil
-217,5,QT_,QT_COMP_PORTATIL_ALUNO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Computador portátil
 218,1,IN_,IN_TABLET_ALUNO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Computadores em uso pelos alunos - Tablet
-219,5,QT_,QT_TABLET_ALUNO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3),Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Tablet
-220,4,QT_,QT_COMPUTADOR,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores na escola
-221,4,QT_,QT_COMP_ADMINISTRATIVO,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores de uso administrativo
 222,1,IN_,IN_INTERNET,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Acesso à Internet
 223,1,IN_,IN_INTERNET_ALUNOS,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -471,69 +379,45 @@
 228,1,IN_,IN_ACES_INTERNET_DISP_PESSOAIS,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim
  9 - Não informado",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),"Equipamentos que os alunos usam para acessar a internet da escola - Dispositivos pessoais (computadores portáteis, celulares, tablets etc.)"
-229,1,TP_,TP_REDE_LOCAL,Num,integer,Sem preenchimento = NULL,,"0 - Não há rede local interligando computadores
- 1 - A cabo
- 2 - Wireless
- 3 - A cabo e Wireless
- 9 - Não informado",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Rede local de interligação de computadores
 230,1,IN_,IN_BANDA_LARGA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_INTERNET = 1 = NULL, else PREENCHIMENTO_VAZIO","0 - Não
  1 - Sim
  - Não aplicável para escolas sem acesso à internet",Recursos Tecnológicos e Materiais de Apoio,Internet Banda Larga,Internet Banda Larga
-231,4,QT_,QT_FUNCIONARIOS,Num,integer,Sem preenchimento = NULL,,,Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Total de funcionários da escola (inclusive profissionais escolares em sala de aula)
 232,1,IN_,IN_PROF_ADMINISTRATIVOS,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Auxiliares de secretaria ou auxiliares administrativos, atendentes"
-233,5,QT_,QT_PROF_ADMINISTRATIVOS,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Auxiliares de secretaria ou auxiliares administrativos, atendentes"
 234,1,IN_,IN_PROF_SERVICOS_GERAIS,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Auxiliar de serviços gerais, porteiro(a), zelador(a), faxineiro(a), jardineiro(a)"
-235,5,QT_,QT_PROF_SERVICOS_GERAIS,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Total de profissionais que atuam na escola - Auxiliar de serviços gerais, porteiro(a), zelador(a), faxineiro(a), jardineiro(a)"
 236,1,IN_,IN_PROF_BIBLIOTECARIO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Bibliotecário(a), auxiliar de biblioteca ou monitor(a) da sala de leitura"
-237,5,QT_,QT_PROF_BIBLIOTECARIO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Bibliotecário(a), auxiliar de biblioteca ou monitor(a) da sala de leitura"
 238,1,IN_,IN_PROF_SAUDE,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista"
-239,5,QT_,QT_PROF_SAUDE,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista"
 240,1,IN_,IN_PROF_COORDENADOR,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Coordenador(a) de turno/disciplina
-241,5,QT_,QT_PROF_COORDENADOR,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Coordenador(a) de turno/disciplina
 242,1,IN_,IN_PROF_FONAUDIOLOGO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Fonoaudiólogo(a)
-243,5,QT_,QT_PROF_FONAUDIOLOGO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Fonoaudiólogo(a)
 244,1,IN_,IN_PROF_NUTRICIONISTA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Nutricionista
-245,5,QT_,QT_PROF_NUTRICIONISTA,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Nutricionista
 246,1,IN_,IN_PROF_PSICOLOGO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Psicólogo(a) Escolar
-247,5,QT_,QT_PROF_PSICOLOGO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Psicólogo(a) Escolar
 248,1,IN_,IN_PROF_ALIMENTACAO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Profissionais de preparação e segurança alimentar, cozinheiro(a), merendeiro(a) e auxiliar de cozinha"
-249,5,QT_,QT_PROF_ALIMENTACAO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Profissionais de preparação e segurança alimentar, cozinheiro(a), merendeiro(a) e auxiliar de cozinha"
 250,1,IN_,IN_PROF_PEDAGOGIA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Profissionais de apoio e supervisão pedagógica: pedagogo(a), coordenador(a) pedagógico(a), orientador(a) educacional, supervisor(a) escolar e coordenador(a) de área de ensino"
-251,5,QT_,QT_PROF_PEDAGOGIA,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Profissionais de apoio e supervisão pedagógica: pedagogo(a), coordenador(a) pedagógico(a), orientador(a) educacional, supervisor(a) escolar e coordenador(a) de área de ensino"
 252,1,IN_,IN_PROF_SECRETARIO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Secretário(a) escolar
-253,5,QT_,QT_PROF_SECRETARIO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Secretário(a) escolar
 254,1,IN_,IN_PROF_SEGURANCA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Segurança, guarda ou segurança patrimonial"
-255,5,QT_,QT_PROF_SEGURANCA,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Segurança, guarda ou segurança patrimonial"
 256,1,IN_,IN_PROF_MONITORES,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Técnicos(as), monitores(as), supervisores(as) ou auxiliares de laboratório(s), de apoio a tecnologias educacionais ou em multimeios/multimídias eletrônico/digitais"
-257,5,QT_,QT_PROF_MONITORES,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Técnicos(as), monitores(as), supervisores(as) ou auxiliares de laboratório(s), de apoio a tecnologias educacionais ou em multimeios/multimídias eletrônico/digitais"
 258,1,IN_,IN_PROF_GESTAO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Vice-diretor(a) ou diretor(a) adjunto(a), profissionais responsáveis pela gestão administrativa e/ou financeira"
-259,5,QT_,QT_PROF_GESTAO,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Vice-diretor(a) ou diretor(a) adjunto(a), profissionais responsáveis pela gestão administrativa e/ou financeira"
 260,1,IN_,IN_PROF_ASSIST_SOCIAL,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Orientador(a) comunitário(a) ou assistente social
-261,5,QT_,QT_PROF_ASSIST_SOCIAL,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula),Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Orientador(a) comunitário(a) ou assistente social
 262,5,IN_,IN_PROF_TRAD_LIBRAS,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Profissionais que atuam na escola - Tradutor e Intérprete de Libras para atendimento em outros ambientes da escola que não seja sala de aula
-263,5,QT_,QT_PROF_TRAD_LIBRAS,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula de aluno com surdez, deficiência auditiva ou surdocegueira).",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Tradutor e Intérprete de Libras para atendimento em outros ambientes da escola que não seja sala de aula
 264,5,IN_,IN_PROF_AGRICOLA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Agrônomos(as), horticultores(as), técnicos ou monitores(as) responsáveis pela gestão da área de horta, plantio e/ou produção agrícola"
-265,5,QT_,QT_PROF_AGRICOLA,Num,integer,Sem preenchimento = NULL,,88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula).,Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Agrônomos(as), horticultores(as), técnicos ou monitores(as) responsáveis pela gestão da área de horta, plantio e/ou produção agrícola"
 266,5,IN_,IN_PROF_REVISOR_BRAILLE,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Profissionais que atuam na escola - Revisor de texto Braille, assistente vidente (assistente de revisão do texto em Braille)"
-267,5,QT_,QT_PROF_REVISOR_BRAILLE,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula de aluno com cegueira, surdo-cegueira ou baixa visão).",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Revisor de texto Braille, assistente vidente (assistente de revisão do texto em Braille)"
 268,1,IN_,IN_ALIMENTACAO,Num,integer,Sem preenchimento = NULL,,"0 - Não oferece
  1 - Oferece",Gestão de Pessoas e Serviços Essenciais,Alimentação Escolar,Alimentação escolar para os alunos - PNAE/FNDE
 269,1,IN_,IN_SERIE_ANO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_ESCOLARIZACAO = 1 = NULL, else PREENCHIMENTO_VAZIO","0 - Não
@@ -602,13 +486,6 @@
  1 - Sim",Aspectos Pedagógicos e Curriculares,Materiais Didáticos Específicos para Diversidade Sociocultural,Materiais didáticos específicos para atendimento à diversidade sociocultural - Não utiliza
 295,1,IN_,IN_EDUCACAO_INDIGENA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena
-296,1,TP_,TP_INDIGENA_LINGUA,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""","1 - Somente em Língua Indígena
- 2 - Somente em Língua Portuguesa
- 3 - Em Língua Indígena e em Língua Portuguesa
- - não aplicável (aplicável apenas para Escola Indígena)",Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena)
-297,4,CO_,CO_LINGUA_INDIGENA_1,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 1
-298,4,CO_,CO_LINGUA_INDIGENA_2,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 2
-299,4,CO_,CO_LINGUA_INDIGENA_3,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""",,Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena) - Língua Indígena - Código da língua Indígena 3
 300,1,IN_,IN_BRASIL_ALFABETIZADO,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Programas e Abertura aos Finais de Semana,Escola cede espaço para turmas do Programa Brasil Alfabetizado
 301,1,IN_,IN_FINAL_SEMANA,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -655,10 +532,6 @@
  1 - Sim",Aspectos Pedagógicos e Curriculares,Órgãos Colegiados em Funcionamento,Órgãos colegiados em funcionamento na escola - Outros
 317,1,IN_,IN_ORGAO_NENHUM,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Órgãos Colegiados em Funcionamento,Órgãos colegiados em funcionamento na escola - Não há órgãos colegiados em funcionamento
-318,1,TP_,TP_PROPOSTA_PEDAGOGICA,Num,integer,Sem preenchimento = NULL,,"0 - Não
- 1 - Sim
- 2 - A escola não possui projeto político pedagógico/proposta pedagógica
- 9 - Não informado",Aspectos Pedagógicos e Curriculares,Projeto Político Pedagógico/Proposta Pedagógica,O projeto político pedagógico ou a proposta pedagógica da escola (conforme art. 12 da LDB) foi atualizado nos últimos 12 meses até a data de referência
 319,1,IN_,IN_EDUC_AMBIENTAL,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Educação Ambiental na Escola,A escola desenvolve ações na área de educação ambiental?
 320,1,IN_,IN_EDUC_AMB_CONTEUDO,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -673,12 +546,6 @@
  1 - Sim",Aspectos Pedagógicos e Curriculares,Educação Ambiental na Escola,Informe de qual(quais) forma(s) a educação ambiental é desenvolvida na escola: Em projetos transversais ou interdisciplinares
 325,1,IN_,IN_EDUC_AMB_NENHUMA,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Educação Ambiental na Escola,Informe de qual(quais) forma(s) a educação ambiental é desenvolvida na escola: Nenhuma das opções listadas
-326,1,TP_,TP_AEE,Num,integer,Sem preenchimento = NULL,,"0 - Não oferece
- 1 - Não exclusivamente
- 2 - Exclusivamente",Aspectos Pedagógicos e Curriculares,Atendimento Educacional Especializado (AEE) e Atividade Complementar,Atendimento Educacional Especializado (AEE)
-327,1,TP_,TP_ATIVIDADE_COMPLEMENTAR,Num,integer,Sem preenchimento = NULL,,"0 - Não oferece
- 1 - Não exclusivamente
- 2 - Exclusivamente",Aspectos Pedagógicos e Curriculares,Atendimento Educacional Especializado (AEE) e Atividade Complementar,Atividade Complementar
 328,1,IN_,IN_MEDIACAO_PRESENCIAL,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Mediação Didático-Pedagógica,Mediação didático-pedagógica oferecida pela escola - Presencial
 329,1,IN_,IN_MEDIACAO_SEMIPRESENCIAL,Num,integer,Sem preenchimento = NULL,,"0 - Não
@@ -727,6 +594,69 @@
  1 - Sim",Aspectos Pedagógicos e Curriculares,Etapas e Modalidades de Ensino Ofertadas,"Educação Especial Inclusiva (em Classes Comuns) - Escola possui um ou mais alunos com deficiência, transtorno global do desenvolvimento ou altas habilidades/superdotação estudando em classes comuns do Ensino Regular e/ou Educação de Jovens e Adultos (Possui uma ou mais matrículas)"
 351,1,IN_,IN_ESP_CE,Num,integer,Sem preenchimento = NULL,,"0 - Não
  1 - Sim",Aspectos Pedagógicos e Curriculares,Etapas e Modalidades de Ensino Ofertadas,"Educação Especial Exclusiva - Escola exclusivamente especializada e/ou que possui classe especial exclusiva para o atendimento de alunos com deficiência, transtorno global do desenvolvimento ou altas habilidades/superdotação (Possui uma ou mais matrículas)"
+2,20,NO_,NO_REGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica
+4,50,NO_,NO_UF,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Unidade da Federação
+7,150,NO_,NO_MUNICIPIO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome do Município
+9,100,NO_,NO_REGIAO_GEOG_INTERM,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica Intermediária
+11,100,NO_,NO_REGIAO_GEOG_IMED,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Região Geográfica Imediata
+13,100,NO_,NO_MESORREGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Mesorregião
+15,100,NO_,NO_MICRORREGIAO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Nome da Microrregião
+17,100,NO_,NO_DISTRITO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Divisão Intramunicipal - Nome do Distrito
+19,100,NO_,NO_ENTIDADE,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Identificação da Escola,Nome da Escola
+28,50,NO_,NO_BAIRRO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Bairro
+1,4,NU_,NU_ANO_CENSO,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Ano do Censo
+26,10,NU_,NU_ENDERECO,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Número
+30,8,NU_,NU_DDD,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,DDD
+31,8,NU_,NU_TELEFONE,Num,integer,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Endereço e Contato da Escola,Telefone
+72,14,NU_,NU_CNPJ_ESCOLA_PRIVADA,Char,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","99999999999999 - Sem declaração
+ - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Informações da Mantenedora da Escola Privada,Número do CNPJ da escola privada
+73,14,NU_,NU_CNPJ_MANTENEDORA,Char,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","99999999999999 - Sem declaração
+ - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,Informações da Mantenedora da Escola Privada,Número do CNPJ da mantenedora principal da escola privada
+178,4,QT_,QT_SALAS_EXISTENTES,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula existentes na escola
+179,4,QT_,QT_SALAS_UTILIZADAS_DENTRO,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola - Dentro do prédio
+180,4,QT_,QT_SALAS_UTILIZADAS_FORA,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola - Fora do prédio
+181,4,QT_,QT_SALAS_UTILIZADAS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Número de salas de aula utilizadas na escola (dentro e fora do prédio)
+182,4,QT_,QT_SALAS_UTILIZA_CLIMATIZADAS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Condições das salas de aula utilizadas na escola (dentro e fora do prédio escolar) - Número de salas de aula climatizadas
+183,4,QT_,QT_SALAS_UTILIZADAS_ACESSIVEIS,Num,integer,Sem preenchimento = NULL,,,Infraestrutura e Acessibilidade,Condições das Salas de Aula,Condições das salas de aula utilizadas na escola (dentro e fora do prédio escolar) - Número de salas de aula com acessibilidade para pessoas com deficiência ou mobilidade reduzida
+192,5,QT_,QT_EQUIP_DVD,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de DVD/Blu-ray
+194,5,QT_,QT_EQUIP_SOM,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de som
+196,5,QT_,QT_EQUIP_TV,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Aparelhos de televisão
+198,5,QT_,QT_EQUIP_LOUSA_DIGITAL,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Lousas digitais
+200,5,QT_,QT_EQUIP_MULTIMIDIA,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 salas existentes - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Projetores Multimídia (Datashow)
+205,4,QT_,QT_EQUIP_VIDEOCASSETE,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Videocassetes
+206,4,QT_,QT_EQUIP_PARABOLICA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Antenas parabólicas
+207,4,QT_,QT_EQUIP_COPIADORA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Copiadoras
+208,4,QT_,QT_EQUIP_RETROPROJETOR,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Retroprojetores
+209,4,QT_,QT_EQUIP_IMPRESSORA,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Impressoras
+210,4,QT_,QT_EQUIP_IMPRESSORA_MULT,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Impressoras Multifuncionais
+211,4,QT_,QT_EQUIP_FAX,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Fax
+212,4,QT_,QT_EQUIP_FOTO,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Equipamentos de Ensino e Aprendizagem,Quantidade de Máquinas Fotográficas/ Filmadoras
+213,4,QT_,QT_COMP_ALUNO,Num,integer,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se QT_COMPUTADOR = 0 ""PREENCHIMENTO_VAZIO"", else NULL","- Não aplicável para escolas que não possuem
+ computador",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos
+215,5,QT_,QT_DESKTOP_ALUNO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Computador de mesa (desktop)
+217,5,QT_,QT_COMP_PORTATIL_ALUNO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Computador portátil
+219,5,QT_,QT_TABLET_ALUNO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo de 4 equipamentos para cada 3 matrículas - foram marcados apenas valores>3)",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores em uso pelos alunos - Tablet
+220,4,QT_,QT_COMPUTADOR,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores na escola
+221,4,QT_,QT_COMP_ADMINISTRATIVO,Num,integer,Sem preenchimento = NULL,,,Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Quantidade de computadores de uso administrativo
+231,4,QT_,QT_FUNCIONARIOS,Num,integer,Sem preenchimento = NULL,,,Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Total de funcionários da escola (inclusive profissionais escolares em sala de aula)
+233,5,QT_,QT_PROF_ADMINISTRATIVOS,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Auxiliares de secretaria ou auxiliares administrativos, atendentes"
+235,5,QT_,QT_PROF_SERVICOS_GERAIS,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Total de profissionais que atuam na escola - Auxiliar de serviços gerais, porteiro(a), zelador(a), faxineiro(a), jardineiro(a)"
+237,5,QT_,QT_PROF_BIBLIOTECARIO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Bibliotecário(a), auxiliar de biblioteca ou monitor(a) da sala de leitura"
+239,5,QT_,QT_PROF_SAUDE,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista"
+241,5,QT_,QT_PROF_COORDENADOR,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Coordenador(a) de turno/disciplina
+243,5,QT_,QT_PROF_FONAUDIOLOGO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Fonoaudiólogo(a)
+245,5,QT_,QT_PROF_NUTRICIONISTA,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Nutricionista
+247,5,QT_,QT_PROF_PSICOLOGO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Psicólogo(a) Escolar
+249,5,QT_,QT_PROF_ALIMENTACAO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Profissionais de preparação e segurança alimentar, cozinheiro(a), merendeiro(a) e auxiliar de cozinha"
+251,5,QT_,QT_PROF_PEDAGOGIA,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Profissionais de apoio e supervisão pedagógica: pedagogo(a), coordenador(a) pedagógico(a), orientador(a) educacional, supervisor(a) escolar e coordenador(a) de área de ensino"
+253,5,QT_,QT_PROF_SECRETARIO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Secretário(a) escolar
+255,5,QT_,QT_PROF_SEGURANCA,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Segurança, guarda ou segurança patrimonial"
+257,5,QT_,QT_PROF_MONITORES,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Técnicos(as), monitores(as), supervisores(as) ou auxiliares de laboratório(s), de apoio a tecnologias educacionais ou em multimeios/multimídias eletrônico/digitais"
+259,5,QT_,QT_PROF_GESTAO,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Vice-diretor(a) ou diretor(a) adjunto(a), profissionais responsáveis pela gestão administrativa e/ou financeira"
+261,5,QT_,QT_PROF_ASSIST_SOCIAL,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula)",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Orientador(a) comunitário(a) ou assistente social
+263,5,QT_,QT_PROF_TRAD_LIBRAS,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula de aluno com surdez, deficiência auditiva ou surdocegueira).",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,Quantidade de profissionais que atuam na escola - Tradutor e Intérprete de Libras para atendimento em outros ambientes da escola que não seja sala de aula
+265,5,QT_,QT_PROF_AGRICOLA,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula).",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Agrônomos(as), horticultores(as), técnicos ou monitores(as) responsáveis pela gestão da área de horta, plantio e/ou produção agrícola"
+267,5,QT_,QT_PROF_REVISOR_BRAILLE,Num,integer,Sem preenchimento = NULL,,"88888 - registro com marcação de valor extremo (valor superior ao limite máximo* definido com base na distribuição da razão de profissionais por matrícula de aluno com cegueira, surdo-cegueira ou baixa visão).",Gestão de Pessoas e Serviços Essenciais,Profissionais que Atuam na Escola,"Quantidade de profissionais que atuam na escola - Revisor de texto Braille, assistente vidente (assistente de revisão do texto em Braille)"
 352,8,QT_,QT_MAT_BAS,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Matrículas por Características,Número de Matrículas da Educação Básica
 353,8,QT_,QT_MAT_INF,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Matrículas por Características,Número de Matrículas da Educação Infantil
 354,8,QT_,QT_MAT_INF_CRE,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Matrículas por Características,Número de Matrículas da Educação Infantil - Creche
@@ -852,3 +782,73 @@
 474,8,QT_,QT_TUR_FUND_AI_INT,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Turmas por Etapa de Ensino e Turno,Número de Turmas do Ensino Fundamental - Anos Iniciais - Tempo Integral
 475,8,QT_,QT_TUR_FUND_AF_INT,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Turmas por Etapa de Ensino e Turno,Número de Turmas do Ensino Fundamental - Anos Finais - Tempo Integral
 476,8,QT_,QT_TUR_MED_INT,Num,integer,Sem preenchimento = NULL,,,"Quantitativos Educacionais (Matrículas, Docentes, Turmas)",Quantidade de Turmas por Etapa de Ensino e Turno,Número de Turmas do Ensino Médio - Tempo Integral
+5,2,SG_,SG_UF,Char,string,Sem preenchimento = NULL,,,Dados Cadastrais e Administrativos,Informações Geográficas e Administrativas,Sigla da Unidade da Federação
+21,1,TP_,TP_DEPENDENCIA,Num,string,Sem preenchimento = NULL,,"1 - Federal
+ 2 - Estadual
+ 3 - Municipal
+ 4 - Privada",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Dependência Administrativa
+22,1,TP_,TP_CATEGORIA_ESCOLA_PRIVADA,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_DEPENDENCIA = 1 or 2 or 3 = PREENCHIMENTO_VAZIO, else NULL","1 - Particular
+ 2 - Comunitária
+ 3 - Confessional
+ 4 - Filantrópica
+ - Não aplicável para escolas públicas",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Categoria da escola privada
+23,1,TP_,TP_LOCALIZACAO,Num,string,Sem preenchimento = NULL,,"1 - Urbana
+ 2 - Rural",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Localização
+24,1,TP_,TP_LOCALIZACAO_DIFERENCIADA,Num,string,Sem preenchimento = NULL,,"0 - A escola não está em área de localização diferenciada
+ 1 - Área de assentamento
+ 2 - Terra indígena
+ 3 - Comunidade quilombola
+ 8 - Área onde se localizam povos e comunidades tradicionais",Dados Cadastrais e Administrativos,"Características da Escola (Dependência, Categoria e Localização)",Localização diferenciada da escola
+32,1,TP_,TP_SITUACAO_FUNCIONAMENTO,Num,string,Sem preenchimento = NULL,,"1 - Em Atividade
+ 2 - Paralisada
+ 3 - Extinta (ano do Censo)
+ 4 - Extinta em Anos Anteriores",Dados Cadastrais e Administrativos,Situação de Funcionamento e Período Letivo,Situação de funcionamento
+41,1,TP_,TP_PODER_PUBLICO_PARCERIA,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_PODER_PUBLICO_PARCERIA = 1, NULL, else PREENCHIMENTO_VAZIO","1 - Municipal
+ 2 - Estadual
+ 3 - Estadual e Municipal
+ - Não aplicável para escolas sem parceria ou convênio com o poder público",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Poder público responsável pela parceria ou convênio entre a Administração Pública e outras instituições
+43,1,TP_,TP_CONVENIO_PODER_PUBLICO,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_PODER_PUBLICO_PARCERIA = 1, NULL, else PREENCHIMENTO_VAZIO","1 - Municipal
+ 2 - Estadual
+ 3 - Estadual e Municipal
+ - Não aplicável para escolas públicas ou privadas não conveniadas",Dados Cadastrais e Administrativos,Vínculo e Parcerias com o Poder Público,Dependência do convênio com o poder público
+74,1,TP_,TP_REGULAMENTACAO,Num,string,Sem preenchimento = NULL,,"0 - Não
+ 1 - Sim
+ 2 - Em tramitação",Dados Cadastrais e Administrativos,Regulamentação e Autorização da Escola,"Regulamentação/Autorização no conselho ou órgão municipal, estadual ou federal de educação"
+75,1,TP_,TP_RESPONSAVEL_REGULAMENTACAO,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se TP_REGULAMENTACAO = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Federal
+ 2 - Estadual
+ 3 - Municipal
+ 4 - Estadual e Municipal
+ 5 - Federal e Estadual
+ 6 - Federal, Estadual e Municipal
+ 9 - Não informado
+ - Não aplicável para escolas sem regulamentação",Dados Cadastrais e Administrativos,Regulamentação e Autorização da Escola,Esfera administrativa do conselho ou órgão responsável pela Regulamentação/Autorização
+79,1,TP_,TP_OCUPACAO_PREDIO_ESCOLAR,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_LOCAL_FUNC_PREDIO_ESCOLAR = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Próprio
+ 2 - Alugado
+ 3 - Cedido
+ - Não aplicável para escolas que não ocupam prédio
+ escolar",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Forma de ocupação do Prédio escolar
+87,1,TP_,TP_OCUPACAO_GALPAO,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","IN_LOCAL_FUNC_GALPAO = 1 = NULL, else PREENCHIMENTO_VAZIO","1 - Próprio
+ 2 - Alugado
+ 3 - Cedido
+ 9 - Não informado
+ - Não aplicável para escolas que não ocupam
+ Galpão/Rancho/Paiol/Barracão",Infraestrutura e Acessibilidade,Local de Funcionamento e Ocupação do Prédio,Forma de ocupação do Galpão/Rancho/Paiol/Barracão
+229,1,TP_,TP_REDE_LOCAL,Num,string,Sem preenchimento = NULL,,"0 - Não há rede local interligando computadores
+ 1 - A cabo
+ 2 - Wireless
+ 3 - A cabo e Wireless
+ 9 - Não informado",Recursos Tecnológicos e Materiais de Apoio,Recursos de Tecnologia e Conectividade (Computadores e Internet),Rede local de interligação de computadores
+296,1,TP_,TP_INDIGENA_LINGUA,Num,string,"Sem preenchimento = string ""PREENCHIMENTO_VAZIO""","se IN_EDUCACAO_INDIGENA = 1 = NULL, else ""PREENCHIMENTO_VAZIO""","1 - Somente em Língua Indígena
+ 2 - Somente em Língua Portuguesa
+ 3 - Em Língua Indígena e em Língua Portuguesa
+ - não aplicável (aplicável apenas para Escola Indígena)",Aspectos Pedagógicos e Curriculares,Informações da Escola Indígena,Escola Indígena - Língua em que o ensino é ministrado (apenas para escola indígena)
+318,1,TP_,TP_PROPOSTA_PEDAGOGICA,Num,string,Sem preenchimento = NULL,,"0 - Não
+ 1 - Sim
+ 2 - A escola não possui projeto político pedagógico/proposta pedagógica
+ 9 - Não informado",Aspectos Pedagógicos e Curriculares,Projeto Político Pedagógico/Proposta Pedagógica,O projeto político pedagógico ou a proposta pedagógica da escola (conforme art. 12 da LDB) foi atualizado nos últimos 12 meses até a data de referência
+326,1,TP_,TP_AEE,Num,string,Sem preenchimento = NULL,,"0 - Não oferece
+ 1 - Não exclusivamente
+ 2 - Exclusivamente",Aspectos Pedagógicos e Curriculares,Atendimento Educacional Especializado (AEE) e Atividade Complementar,Atendimento Educacional Especializado (AEE)
+327,1,TP_,TP_ATIVIDADE_COMPLEMENTAR,Num,string,Sem preenchimento = NULL,,"0 - Não oferece
+ 1 - Não exclusivamente
+ 2 - Exclusivamente",Aspectos Pedagógicos e Curriculares,Atendimento Educacional Especializado (AEE) e Atividade Complementar,Atividade Complementar

@@ -1,10 +1,16 @@
 ## Lembretes para o README
 
-subir os arquivos pesados no drive, e colocar no readme, explicar o sample e link para o pesado
-subi a trusted no notebook e além de explorar por lá a idéia é tratar oq mais for necessário por lá (notebbok) - demonstrar que consigo trabalhar com python plugado em banco com biblioteca correta. OBS: pode ser estratégico criar algo com SQL via dbeaver só pra acenar que também conheço de SQL
-
+- subir os arquivos pesados no drive, e colocar no readme, explicar o sample e link para o pesado
+- subir a trusted no notebook e além de explorar por lá a idéia é tratar oq mais for necessário por lá (notebbok) - demonstrar que consigo trabalhar com - python plugado em banco com biblioteca correta. OBS: pode ser estratégico criar algo com SQL via dbeaver só pra acenar que também conheço de SQL?
 
 ## onde parei o projeto - lembrete para retomar
 
-- algo não rodou bem no etl_trusted.py: a lógica de nulls x -100 não deu certo ainda.
-- pegar casos e testar para debugar
+- Finalizei a trusted zone!
+- Criar a Refined zone:
+
+### Refined Zone
+
+- criar um % de preenchimento por escola (horizontal)
+- criar um % de preenchimento por variável (vertical) Criar um contador de null e diferenciar dos -100 ... talvez um intervalo de confiança de não preechimentos?
+
+- pensar como preparar as categorias e subcategorias para não trabalhar com 476 linhas, mas com bem menos
