@@ -5,12 +5,13 @@
 
 ## onde parei o projeto - lembrete para retomar
 
-- Finalizei a trusted zone!
-- Criar a Refined zone:
+- AED no jupyter - está quebrando, talvez falta de memória, talvez acesso simultaneo sqlite
+- checagem rápida, mas a idéia é ir para o power BI com duas tabelas, trusted e dicionario e realizar o join + criar a visualização, níveis, etc
 
+
+- Criar a Refined zone:
 ### Refined Zone
 
 - criar um % de preenchimento por escola (horizontal)
 - criar um % de preenchimento por variável (vertical) Criar um contador de null e diferenciar dos -100 ... talvez um intervalo de confiança de não preechimentos?
-
 - pensar como preparar as categorias e subcategorias para não trabalhar com 476 linhas, mas com bem menos

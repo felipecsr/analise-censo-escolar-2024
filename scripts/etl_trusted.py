@@ -166,10 +166,34 @@ for col in cols_numericas:
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Conversão para data
+print("Convertendo e padronizando colunas de data...")
+
+# Pega a lista de colunas de data do dicionário
 cols_data = df_dict[df_dict["TIPO_ATUALIZADO"] == "date"]["VARIAVEL"].tolist()
+
+# Define o formato de data da sua camada RAW (ex: "12FEB2024:00:00:00")
+# Fazemos isso uma vez, fora do loop, para ser mais eficiente.
+formato_data_raw = "%d%b%Y:%H:%M:%S"
+
+# Loop para processar cada coluna de data
 for col in cols_data:
     if col in df.columns:
-        df[col] = pd.to_datetime(df[col], errors='coerce').dt.date
+        print(f"Processando data: {col}...")
+        try:
+            # ETAPA 1: LEITURA (lendo o formato especial)
+            # Primeiro, garantimos que a coluna é do tipo string para evitar erros.
+            # Depois, convertemos para datetime usando o formato que definimos.
+            series_com_hora = pd.to_datetime(df[col].astype(str),
+                                             format=formato_data_raw,
+                                             errors='coerce')
+
+            # ETAPA 2: TRANSFORMAÇÃO (deixando no formato padrão sem hora)
+            # Agora que a data foi lida corretamente, extraímos apenas a parte da data.
+            df[col] = series_com_hora.dt.date
+
+        except Exception as e:
+            # Boa prática: avisar se algo der errado com uma coluna específica
+            log.warning(f"Não foi possível processar a coluna de data '{col}'. Erro: {e}")
 
 # Conversão de códigos TP_
 def processa_legenda_tp(series, legenda_raw):
@@ -217,4 +241,4 @@ log(f"Arquivo trusted salvo em: {TRUSTED_PATH}")
 
 end_time = time.time()
 log(f"\nTempo total: {end_time - start_time:.2f}s")
-log("=== ETL 'Desde o Zero' V2 - Execução finalizada ===")
+log("=== ETL Trusted Zone - Execução finalizada ===")

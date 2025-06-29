@@ -1,5 +1,5 @@
 === ETL 'Desde o Zero' V2 - Execução iniciada ===
-Início: 2025-06-27 22:11:01
+Início: 2025-06-29 11:18:17
 
 1. Carregando arquivos de dicionário e dados brutos...
 Linhas lidas: 215545
@@ -419,5 +419,5 @@ Conversões finais aplicadas.
 Linhas duplicadas removidas: 0
 Arquivo trusted salvo em: /home/fcsr/Documentos/Dbeaver/qualidade_dados_censo_escolar_2024/data/2_trusted/microdados_ed_basica_trusted.csv
 
-Tempo total: 183.88s
+Tempo total: 140.98s
 === ETL 'Desde o Zero' V2 - Execução finalizada ===
