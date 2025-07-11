@@ -1,4 +1,4 @@
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python) ![Pandas](https://img.shields.io/badge/Pandas-2.2%2B-blue?logo=pandas) ![PowerBI](https://img.shields.io/badge/PowerBI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Concluído-green)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python) ![Pandas](https://img.shields.io/badge/Pandas-2.2%2B-blue?logo=pandas) ![PyArrow](https://img.shields.io/badge/PyArrow-blue?logo=apache) ![PowerBI](https://img.shields.io/badge/PowerBI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Em_andamento-yellow)
 
 # 🧪 Qualidade dos Dados no Censo Escolar 2024
 Uma análise da completude e de potenciais inconsistências nos microdados da educação básica.
@@ -38,13 +38,21 @@ O projeto foi estruturado em uma sequência de etapas de ETL (Extração, Transf
 
 ### ✅ Etapas Finalizadas
 1.  **ETL - Camada Trusted**: O script `trusted_zone.py` executou a limpeza e padronização dos dados brutos. Suas principais ações foram a aplicação de **regras de negócio condicionais** para tratar campos vazios e a criação de um **valor sentinela (`-100`)** para diferenciar "não preenchimento esperado" de um dado genuinamente ausente.
-2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, um segundo script gerou uma base focada na análise de completude, criando métricas que quantificaram os `nulos` versus os valores `-100`.
-3.  **Visualização de Dados**: Os principais achados foram consolidados em um dashboard interativo - análise de completude.
+2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, o script `refined_zone_for_null_analysis.py` executou uma profunda transformação nos dados. A principal operação foi o **`melt`** (ou unpivot), que converteu a tabela de um formato largo para um formato longo. Com isso, cada linha passou a representar uma única variável de uma escola, facilitando a análise no Power BI. Para lidar com o grande volume de dados de forma eficiente, o processo foi otimizado para baixo uso de memória através de:
+    * Leitura do arquivo de origem em `chunks` (pedaços).
+    * Escrita incremental do resultado diretamente em um arquivo **Parquet**, utilizando a biblioteca `PyArrow`.
+3.  **Visualização de Dados**: Os principais achados da análise de completude foram consolidados em um dashboard interativo.
 
 ### 🚧 Etapas Em Desenvolvimento
-4.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparou os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
-5.  **Análise e Diagnóstico**: A análise foi conduzida em `Jupyter Notebooks`, onde foram explorados os padrões de preenchimento e as inconsistências encontradas.
-6.  **Visualização de Dados**: Os principais achados foram consolidados em um dashboard interativo - - análise de potenciais inconsistências.
+4.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparará os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
+5.  **Análise e Diagnóstico**: A análise dos dados de inconsistência será conduzida em `Jupyter Notebooks`.
+6.  **Visualização de Dados**: Os principais achados da análise de inconsistências serão consolidados em um segundo dashboard interativo.
+
+---
+## ✅ Validação e Qualidade do ETL
+Para garantir a integridade dos dados após a complexa transformação de `melt` (que expandiu a base para mais de 90 milhões de linhas), foi criado um script de verificação: `etl_verification_trusted-refined_melted.py`.
+
+Este script compara a contagem de **escolas únicas (`CO_ENTIDADE`)** entre a camada `Trusted` (origem) e a `Refined` (resultado). Ao confirmar que os números são idênticos, o script valida que nenhuma escola foi perdida ou indevidamente duplicada durante o processo de ETL, garantindo a confiabilidade da base de dados usada para a análise.
 
 ---
 ## 📊 Dashboard Interativo no Power BI
@@ -56,9 +64,8 @@ Os resultados da análise foram compilados em um painel interativo no Power BI, 
 
 ## 🛠️ Tecnologias Utilizadas
 * **Linguagem:** Python 3.9
-* **Bibliotecas de Dados:** Pandas, Numpy
+* **Bibliotecas de Dados:** Pandas, Numpy, PyArrow
 * **Visualização (Análise):** Matplotlib, Seaborn
-* **Banco de Dados (Consulta inicial):** SQLite / DBeaver
 * **Dashboarding:** Power BI Desktop
 
 ---
@@ -66,11 +73,11 @@ Os resultados da análise foram compilados em um painel interativo no Power BI, 
 ## 🚀 Como Executar o Projeto
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone https://github.com/felipecsr/qualidade_dados_censo_escolar_2024.git
     ```
 2.  Navegue até o diretório do projeto:
     ```bash
-    cd seu-repositorio
+    cd qualidade_dados_censo_escolar_2024
     ```
 3.  Instale as dependências (recomenda-se o uso de um ambiente virtual):
     ```bash
@@ -78,8 +85,9 @@ Os resultados da análise foram compilados em um painel interativo no Power BI, 
     ```
 4.  Execute os scripts de ETL na ordem correta, dentro da pasta `scripts/`:
     * `python trusted_zone.py`
-    * `python refined_completude.py` (exemplo de nome)
-    * `python refined_inconsistencia.py` (exemplo de nome)
+    * `python refined_zone_for_null_analysis.py`
+    * (Opcional, mas recomendado) `python etl_verification_trusted-refined_melted.py`
+    * (Em breve) `python refined_zone_for_inconsistency_analysis.py`
 5.  Abra os notebooks na pasta `notebooks/` para ver a análise detalhada.
 
 ---
