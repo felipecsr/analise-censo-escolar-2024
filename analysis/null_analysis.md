@@ -8,25 +8,29 @@ Este documento detalha a **análise exploratória** sobre a completude dos dados
 A exploração foi conduzida em um dashboard interativo no Power BI, composto por quatro abas principais que permitem a investigação dos dados sob diferentes óticas.
 
 **Aba 1: Análise por Categoria e Sub-categoria**
-![Aba1](/powerbi/gifs/aba1.gif)
+![Aba1](/powerbi/gifs/aba1.gif)  
+
 *Esta aba permite uma visão geral da distribuição de dados nulos, preenchidos e ambíguos em todas as variáveis, agrupadas por seus respectivos temas.*
 
 <br>
 
 **Aba 2: Análise por Região e UF**
-![Aba2](/powerbi/gifs/aba2.gif)
+![Aba2](/powerbi/gifs/aba2.gif)  
+
 *Análise do comportamento dos dados faltantes sob um prisma geográfico, comparando as grandes regiões e Unidades Federativas do Brasil.*
 
 <br>
 
 **Aba 3: Detalhamento de UF por Mesoregião e Municípios**
-![Aba3](/powerbi/gifs/aba3.gif)
+![Aba3](/powerbi/gifs/aba3.gif)  
+
 *Mergulho nos dados em nível local, permitindo a identificação de disparidades dentro de um mesmo estado.*
 
 <br>
 
 **Aba 4: Análise por Localização e Dependência**
-![Aba4](/powerbi/gifs/aba4.gif)
+![Aba4](/powerbi/gifs/aba4.gif)  
+
 *Cruzamento dos dados por características da escola, como a localização (rural/urbana) e a dependência administrativa (federal, estadual, municipal, privada).*
 
 <br>
