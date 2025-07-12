@@ -52,11 +52,12 @@ O projeto foi estruturado em uma sequência de etapas de ETL (Extração, Transf
 2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, o script `refined_zone_for_null_analysis.py` executou uma profunda transformação nos dados. A principal operação foi o **`melt`** (ou unpivot), que converteu a tabela de um formato largo para um formato longo. Com isso, cada linha passou a representar uma única variável de uma escola, facilitando a análise no Power BI. Para lidar com o grande volume de dados de forma eficiente, o processo foi otimizado para baixo uso de memória, após encararmos esgotamentos de memória:
     * Leitura do arquivo de origem em `chunks` (pedaços).
     * Escrita incremental do resultado diretamente em um arquivo **Parquet**, utilizando a biblioteca `PyArrow`.
-3.  **Análise Exploratória e Geração de Hipóteses**: Através de um dashboard interativo no Power BI, foram explorados os padrões visuais dos dados e geradas as hipóteses iniciais sobre os fatores que influenciam a completude dos dados.
+3.  **Análise Exploratória e Geração de Hipóteses**: Através de um dashboard interativo no `Power BI`, foram explorados os padrões visuais dos dados e geradas as hipóteses iniciais sobre os fatores que influenciam a completude dos dados.
 
 
 ### 🚧 Etapas Em Desenvolvimento
-4.  **Validação Estatística e Inferência**: Utilizando um modelo de Regressão Logística, as hipóteses foram testadas estatisticamente. Esta etapa quantificou o impacto e a significância de cada fator (como localização e dependência) na probabilidade de ocorrência de dados nulos, confirmando os achados da fase exploratória. 
+4.  **Validação Estatística e Inferência**: Utilizando um modelo de Regressão Logística, as hipóteses foram testadas estatisticamente. Esta etapa quantificou o impacto e a significância de cada fator (por exemplo, localização e dependência) na probabilidade de ocorrência de dados nulos, confirmando os achados da fase exploratória, em um `Jupyter Notebooks`.
+
 5.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparará os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
 6.  **Análise e Diagnóstico**: A análise dos dados de inconsistência será conduzida em `Jupyter Notebooks`.
 7.  **Visualização de Dados**: Os principais achados da análise de inconsistências serão consolidados em um segundo dashboard interativo.
