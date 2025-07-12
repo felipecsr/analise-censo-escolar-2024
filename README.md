@@ -20,14 +20,13 @@ Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo E
 ## ⭐ Principais Resultados
 
 ### 📊 Análise de Completude
-* **Achado 1:** Foi identificado que **35%** das escolas que não declararam possuir saneamento básico se enquadram na regra de "não aplicabilidade" (`-100`), sugerindo uma falha no preenchimento do questionário, e não necessariamente a ausência do recurso.
-* **Achado 2:** O campo referente ao **número de funcionários de apoio** apresentou um alto índice de preenchimento nulo, especialmente em escolas privadas, o que dificulta a análise sobre a estrutura de pessoal neste segmento.
-* **Achado 3:** O padrão de dados ausentes (`nulos`) se mostrou **2.5 vezes mais acentuado em escolas rurais e de gestão municipal**, apontando para uma desigualdade na própria capacidade de reporte dos dados ao Censo.
+* **Achado 1:** O fator mais determinante para a ausência de dados é a localização da escola: zonas rurais apresentam uma taxa de não preenchimento de 23%, mais que o dobro da encontrada em zonas urbanas (9%). Essa disparidade é ainda mais acentuada em regiões como o Sudeste (41% rural vs. 11% urbano).
+* **Achado 2:** Existe uma grande variação geográfica e administrativa na qualidade dos dados. Estados como Minas Gerais (29% de nulos) contrastam fortemente com o Paraná (4,5%). Nacionalmente, escolas de gestão privada (16%) e municipal (14%) possuem taxas de nulos significativamente maiores que as estaduais (10%) e federais (2,3%).
+* **Achado 3:** A concentração de dados faltantes em estratos específicos (rural, certos estados e dependências) aponta para uma fragilidade sistêmica no método de coleta. A conclusão é que o processo, por ser rígido e uniforme, falha em se adaptar e reforçar o preenchimento em contextos sabidamente mais desafiadores.
 
 ### ⚠️ Análise de Potenciais Inconsistências
-* **Achado 1:** Cerca de **12 mil** escolas reportaram possuir computadores para uso dos alunos, mas, contraditoriamente, declararam **não ter energia elétrica**, indicando uma forte inconsistência nos dados de infraestrutura básica.
-* **Achado 2:** Verificou-se que **8%** das escolas que declararam oferecer alimentação escolar também informaram **não possuir cozinha**, um cruzamento que aponta para uma provável distorção na declaração de serviços essenciais.
-* **Achado 3:** Um número significativo de escolas que se declararam "em atividade" também reportaram **não possuir nenhuma turma ou matrícula ativa**, uma contradição fundamental sobre o status operacional da instituição.
+
+*Em desenvolvimento*
 
 
 ---
@@ -96,5 +95,5 @@ Os resultados da análise foram compilados em um painel interativo no Power BI, 
 - `data/`: Contém as bases de dados nas camadas `raw`, `trusted` e `refined`.
 - `scripts/`: Armazena os pipelines em Python para a criação das camadas de dados.
 - `notebooks/`: Análises exploratórias e estatísticas desenvolvidas em Jupyter.
-- `powerbi/`: Arquivo `.pbix` do Power BI e o markdown com a análise do dashboard.
+- `powerbi/`: Arquivo `.pbix` do Power BI e o markdown com a análise dos dashboards.
 - `README.md`: Esta apresentação do projeto.
