@@ -1,5 +1,15 @@
+# --- Manipulação e Processamento de Dados ---
 pandas
 numpy
+pyarrow
+
+# --- Análise Estatística e Modelagem ---
+scikit-learn
+statsmodels
+
+# --- Visualização de Dados ---
 matplotlib
 seaborn
+
+# --- Ambiente de Desenvolvimento Interativo ---
 jupyterlab
