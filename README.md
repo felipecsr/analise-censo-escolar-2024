@@ -13,8 +13,20 @@ O Censo Escolar é a principal fonte de dados sobre a educação básica brasile
 
 ## 🎯 Objetivo
 Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo Escolar 2024**, a partir de dois eixos principais:
-1.  **Dados Faltantes (Análise de Completude)**: Foi investigado o padrão na ausência de preenchimento, diferenciando valores genuinamente nulos (`NULL`) daqueles que, por regra de negócio, não se aplicavam a um determinado contexto (identificados como `-100` ou `Preenchimento Ambíguo`).
-2.  **Potenciais Inconsistências**: Foram identificados cruzamentos entre variáveis preenchidas que sugeriam sinais de contradição nos dados (ex: escola que informa ter internet, mas não possuir energia elétrica).
+1.  **Dados Faltantes (Análise de Completude)**: Investigar o padrão e os principais fatores associados à ausência inesperada de dados (Nulos Genuínos), a fim de identificar se o não preenchimento é aleatório ou se concentra em estratos específicos (como localização, região ou dependência administrativa da escola).
+2.  **Potenciais Inconsistências**: Foram realizados cruzamentos entre variáveis preenchidas que sugeriam sinais de contradição nos dados (ex: escola que informa ter internet, mas não possuir energia elétrica). Mensuramos, tentamos enxergar padrões nesse tipo de preenchimento que pode ser equivocado.
+
+---
+## ⚙️ Metodologia de Tratamento de Dados
+
+Para conduzir uma análise de completude precisa, foi crucial diferenciar os tipos de dados ausentes, pois nem todo campo vazio representa uma falha de preenchimento.
+
+* **O Desafio:** No Censo Escolar, muitos campos são condicionados. Por exemplo, a pergunta sobre "língua indígena" só deve ser preenchida se a escola for declaradamente indígena. Um campo vazio nesse caso não é um erro, mas um **preenchimento esperado**.
+
+* **A Solução:** Através da lógica implementada no ETL, esses "nulos permitidos por regra de negócio" foram identificados e classificados com um valor sentinela (`-100`), recebendo o status de **"Preenchimento Ambíguo"**.
+
+* **O Foco da Análise:** Essa separação permitiu que a análise de qualidade se concentrasse nos **"Nulos Genuínos"** – aqueles campos que deveriam ter sido preenchidos, mas não foram. Os dados de "Preenchimento Ambíguo" foram monitorados para garantir a consistência do ETL, mas não foram o alvo da crítica de qualidade.
+
 
 ---
 ## ⭐ Principais Resultados
@@ -31,7 +43,7 @@ Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo E
 
 ---
 
-## 🔬 Etapas do Projeto
+## 📋 Etapas do Projeto
 
 O projeto foi estruturado em uma sequência de etapas de ETL (Extração, Transformação e Carga) e Análise, que construíram camadas de dados progressivamente mais ricas para a investigação.
 
