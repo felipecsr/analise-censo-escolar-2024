@@ -13,7 +13,7 @@ O Censo Escolar é a principal fonte de dados sobre a educação básica brasile
 
 ## 🎯 Objetivo
 Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo Escolar 2024**, a partir de dois eixos principais:
-1.  **Dados Faltantes (Análise de Completude)**: Investigar o padrão e os principais fatores associados à ausência inesperada de dados (Nulos Genuínos), a fim de identificar se o não preenchimento é aleatório ou se concentra em estratos específicos (como localização, região ou dependência administrativa da escola).
+1.  **Dados Faltantes (Análise de Completude)**: Investigar o padrão e os principais fatores associados à ausência inesperada de dados (Nulos Genuínos), a fim de identificar se o não preenchimento é aleatório ou se concentra em estratos específicos (como tipos de variáveis/ categorias, localização, região ou dependência administrativa da escola).
 2.  **Potenciais Inconsistências**: Foram realizados cruzamentos entre variáveis preenchidas que sugeriam sinais de contradição nos dados (ex: escola que informa ter internet, mas não possuir energia elétrica). Mensuramos, tentamos enxergar padrões nesse tipo de preenchimento que pode ser equivocado.
 
 ---
@@ -49,15 +49,17 @@ O projeto foi estruturado em uma sequência de etapas de ETL (Extração, Transf
 
 ### ✅ Etapas Finalizadas
 1.  **ETL - Camada Trusted**: O script `trusted_zone.py` executou a limpeza e padronização dos dados brutos. Suas principais ações foram a aplicação de **regras de negócio condicionais** para tratar campos vazios e a criação de um **valor sentinela (`-100`)** para diferenciar "não preenchimento esperado" de um dado genuinamente ausente.
-2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, o script `refined_zone_for_null_analysis.py` executou uma profunda transformação nos dados. A principal operação foi o **`melt`** (ou unpivot), que converteu a tabela de um formato largo para um formato longo. Com isso, cada linha passou a representar uma única variável de uma escola, facilitando a análise no Power BI. Para lidar com o grande volume de dados de forma eficiente, o processo foi otimizado para baixo uso de memória através de:
+2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, o script `refined_zone_for_null_analysis.py` executou uma profunda transformação nos dados. A principal operação foi o **`melt`** (ou unpivot), que converteu a tabela de um formato largo para um formato longo. Com isso, cada linha passou a representar uma única variável de uma escola, facilitando a análise no Power BI. Para lidar com o grande volume de dados de forma eficiente, o processo foi otimizado para baixo uso de memória, após encararmos esgotamentos de memória:
     * Leitura do arquivo de origem em `chunks` (pedaços).
     * Escrita incremental do resultado diretamente em um arquivo **Parquet**, utilizando a biblioteca `PyArrow`.
-3.  **Visualização de Dados**: Os principais achados da análise de completude foram consolidados em um dashboard interativo.
+3.  **Análise Exploratória e Geração de Hipóteses**: Através de um dashboard interativo no Power BI, foram explorados os padrões visuais dos dados e geradas as hipóteses iniciais sobre os fatores que influenciam a completude dos dados.
+
 
 ### 🚧 Etapas Em Desenvolvimento
-4.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparará os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
-5.  **Análise e Diagnóstico**: A análise dos dados de inconsistência será conduzida em `Jupyter Notebooks`.
-6.  **Visualização de Dados**: Os principais achados da análise de inconsistências serão consolidados em um segundo dashboard interativo.
+4.  **Validação Estatística e Inferência**: Utilizando um modelo de Regressão Logística, as hipóteses foram testadas estatisticamente. Esta etapa quantificou o impacto e a significância de cada fator (como localização e dependência) na probabilidade de ocorrência de dados nulos, confirmando os achados da fase exploratória. 
+5.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparará os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
+6.  **Análise e Diagnóstico**: A análise dos dados de inconsistência será conduzida em `Jupyter Notebooks`.
+7.  **Visualização de Dados**: Os principais achados da análise de inconsistências serão consolidados em um segundo dashboard interativo.
 
 ---
 ## ✅ Validação e Qualidade do ETL
