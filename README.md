@@ -13,7 +13,7 @@ O Censo Escolar é a principal fonte de dados sobre a educação básica brasile
 
 ## 🎯 Objetivo
 Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo Escolar 2024**, a partir de dois eixos principais:
-1.  **Dados Faltantes (Análise de Completude)**: Foi investigado o padrão na ausência de preenchimento, diferenciando valores genuinamente nulos (`NULL`) daqueles que, por regra de negócio, não se aplicavam a um determinado contexto (identificados como `-100`).
+1.  **Dados Faltantes (Análise de Completude)**: Foi investigado o padrão na ausência de preenchimento, diferenciando valores genuinamente nulos (`NULL`) daqueles que, por regra de negócio, não se aplicavam a um determinado contexto (identificados como `-100` ou `Preenchimento Ambíguo`).
 2.  **Potenciais Inconsistências**: Foram identificados cruzamentos entre variáveis preenchidas que sugeriam sinais de contradição nos dados (ex: escola que informa ter internet, mas não possuir energia elétrica).
 
 ---
@@ -22,7 +22,7 @@ Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo E
 ### 📊 Análise de Completude
 * **Achado 1:** O fator mais determinante para a ausência de dados é a localização da escola: zonas rurais apresentam uma taxa de não preenchimento de 23%, mais que o dobro da encontrada em zonas urbanas (9%). Essa disparidade é ainda mais acentuada em regiões como o Sudeste (41% rural vs. 11% urbano).
 * **Achado 2:** Existe uma grande variação geográfica e administrativa na qualidade dos dados. Estados como Minas Gerais (29% de nulos) contrastam fortemente com o Paraná (4,5%). Nacionalmente, escolas de gestão privada (16%) e municipal (14%) possuem taxas de nulos significativamente maiores que as estaduais (10%) e federais (2,3%).
-* **Achado 3:** A concentração de dados faltantes em estratos específicos (rural, certos estados e dependências) aponta para uma fragilidade sistêmica no método de coleta. A conclusão é que o processo, por ser rígido e uniforme, falha em se adaptar e reforçar o preenchimento em contextos sabidamente mais desafiadores.
+* **Achado 3:** A concentração de dados faltantes em estratos específicos (rural, certos estados e dependências) aponta para uma fragilidade sistêmica no método de coleta. Isso sugere que a aplicação de um método "tamanho único" para realidades escolares tão diversas pode ser a raiz do problema, pois o sistema atual parece não possuir mecanismos de reforço ou adaptação para os contextos mais, sabidamente, desafiadores (para a completude dos dados).
 
 ### ⚠️ Análise de Potenciais Inconsistências
 
