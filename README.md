@@ -1,4 +1,4 @@
-![Python](https://img.shields.io/badge/Python-3.12.4-blue?logo=python) ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter) ![Pandas](https://img.shields.io/badge/Pandas-2.2.2-blue?logo=pandas) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5.0-orange?logo=scikitlearn) ![Statsmodels](https://img.shields.io/badge/Statsmodels-0.14.2-blueviolet) ![Power BI](https://img.shields.io/badge/Power_BI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Em_andamento-yellow)
+![Python](https://img.shields.io/badge/Python-3.12.4-blue?logo=python) ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter) ![Pandas](https://img.shields.io/badge/Pandas-2.2.2-blue?logo=pandas) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5.0-orange?logo=scikitlearn)  ![Power BI](https://img.shields.io/badge/Power_BI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Em_andamento-yellow)
 
 # 🧪 Qualidade dos Dados no Censo Escolar 2024
 Uma análise da completude e de potenciais inconsistências nos microdados da educação básica.
