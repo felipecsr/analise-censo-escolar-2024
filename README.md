@@ -33,9 +33,6 @@ A jornada completa da investigação, desde o problema aparente até a descobert
     >
     > **[Acesse a análise completa aqui.](./analysis/null_analysis.md)**
 
-* **2. Análise de Potenciais Inconsistências**
-    > *(Em desenvolvimento)*
-
 ---
 
 ## 🛣️ A Jornada Analítica: Etapas do Projeto
@@ -93,7 +90,6 @@ Para conduzir uma análise de completude precisa, foi crucial diferenciar os tip
 ## 📂 Organização do repositório
 - `analysis/`: Contém os documentos Markdown com as análises detalhadas.
 - `data/`: Armazena as bases de dados, das camadas `raw` às `refined`.
-- `notebooks/`: Notebooks utilizados para explorações pontuais.
 - `powerbi/`: Arquivo `.pbix` do Power BI e GIFs.
 - `scripts/`: Pipelines em Python para o ETL.
 - `README.md`: Esta apresentação do projeto.
