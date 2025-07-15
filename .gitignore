@@ -1,4 +1,3 @@
-data/0_sqlite/censo_escolar
 data/1_raw/microdados_ed_basica_2024.csv
 data/2_trusted/microdados_ed_basica_trusted.csv
 data/3_refined/refined_analise_de_nulos_com_id.parquet

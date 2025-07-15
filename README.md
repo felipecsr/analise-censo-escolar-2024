@@ -1,20 +1,51 @@
-![Python](https://img.shields.io/badge/Python-3.12.4-blue?logo=python) ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter) ![Pandas](https://img.shields.io/badge/Pandas-2.2.2-blue?logo=pandas) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5.0-orange?logo=scikitlearn)  ![Power BI](https://img.shields.io/badge/Power_BI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Em_andamento-yellow)
+![Python](https://img.shields.io/badge/Python-3.12.4-blue?logo=python) ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter) ![Pandas](https://img.shields.io/badge/Pandas-2.2.2-blue?logo=pandas) ![Power BI](https://img.shields.io/badge/Power_BI-Desktop-yellow?logo=powerbi) ![Status](https://img.shields.io/badge/Status-Análise_Concluída-green)
 
-# 🧪 Qualidade dos Dados no Censo Escolar 2024
-Uma análise da completude e de potenciais inconsistências nos microdados da educação básica.
+# 🧪 Qualidade Percebida vs. Realidade nos Dados do Censo Escolar 2024
+Uma análise crítica sobre o impacto de vieses metodológicos na interpretação de dados públicos.
 
 ---
 
 ## 💥 Problemática
-O Censo Escolar é a principal fonte de dados sobre a educação básica brasileira. Utilizado para a formulação de políticas públicas e repasses de recursos, sua precisão é fundamental. Entretanto, estudos recentes, como os da plataforma **Equidade.info**[^1], apontaram para **discrepâncias relevantes entre os dados autodeclarados pelas escolas e a realidade**, mascarando desigualdades e comprometendo a eficácia das políticas.
+O Censo Escolar é a principal fonte de dados para a formulação de políticas públicas educacionais no Brasil. Análises superficiais de seus microdados frequentemente apontam para uma taxa de não preenchimento de aproximadamente **14%**, um número que poderia sugerir problemas de qualidade e comprometer a confiança em estudos e decisões baseadas nesta fonte de dados.
 
 ---
-[^1]: O trabalho foi inspirado pelas pesquisas lideradas por **Guilherme Lichand**, co-fundador da plataforma **Equidade.info**. As principais referências foram o artigo [O que uma nova pesquisa revela sobre desigualdades invisíveis no Ensino Básico brasileiro](https://pp.nexojornal.com.br/ponto-de-vista/2023/11/17/o-que-uma-nova-pesquisa-revela-sobre-desigualdades-invisiveis-no-ensino-basico-brasileiro) (Nexo Jornal, 2023) e a reportagem de **Laura Mattos** com participação de Lichand, [Brasil tem 3,5 vezes mais alunos com deficiência do que indicam dados oficiais, diz pesquisa](https://www1.folha.uol.com.br/educacao/2024/08/brasil-tem-35-vezes-mais-alunos-com-deficiencia-do-que-indicam-dados-oficiais-diz-pesquisa.shtml) (Folha de S. Paulo, 2024).
 
 ## 🎯 Objetivo
-Este projeto teve como objetivo **analisar a qualidade dos microdados do Censo Escolar 2024**, a partir de dois eixos principais:
-1.  **Dados Faltantes (Análise de Completude)**: Investigar o padrão e os principais fatores associados à ausência inesperada de dados (Nulos Genuínos), a fim de identificar se o não preenchimento é aleatório ou se concentra em estratos específicos (como tipos de variáveis/ categorias, localização, região ou dependência administrativa da escola).
-2.  **Potenciais Inconsistências**: Foram realizados cruzamentos entre variáveis preenchidas que sugeriam sinais de contradição nos dados (ex: escola que informa ter internet, mas não possuir energia elétrica). Mensuramos, tentamos enxergar padrões nesse tipo de preenchimento que pode ser equivocado.
+Este projeto teve como objetivo inicial investigar os fatores associados a essa aparente alta taxa de dados faltantes no Censo Escolar 2024. No entanto, a análise evoluiu para um propósito mais profundo: **avaliar criticamente o impacto da composição da base de dados na percepção de sua qualidade**, demonstrando como uma análise sem o escopo correto pode levar a conclusões equivocadas.
+
+---
+## ⭐ Principal Descoberta: O "Problema dos Nulos" é um Artefato Metodológico
+
+A investigação revelou que a aparente alta taxa de dados faltantes (14%) não se deve a uma falha generalizada de preenchimento, mas sim à inclusão de mais de **34 mil escolas com status "Paralisada" ou "Extinta"** na base de dados padrão. A documentação do INEP confirma que a presença dessas escolas é deliberada, pois elas devem declarar seu status anualmente.
+
+Ao isolar o universo de escolas que de fato deveriam reportar dados completos — as 135 mil escolas em **"Em Atividade"** — a taxa de não preenchimento despenca para apenas **0,69%**.
+
+Esta descoberta muda o paradigma da análise: o principal desafio não é a qualidade do preenchimento das escolas ativas (que se mostra excelente), mas sim a **interpretação correta do universo de dados**, uma nuance não explicitamente alertada nos manuais de uso público, que pode induzir analistas a erros de avaliação.
+
+---
+
+## 🔎 Análise Detalhada
+
+A jornada completa da investigação, desde o problema aparente até a descoberta da causa raiz, está documentada no arquivo abaixo.
+
+* **1. Análise de Completude de Dados**
+    > A narrativa da investigação que revelou o impacto das escolas inativas na qualidade percebida dos dados do Censo.
+    >
+    > **[Acesse a análise completa aqui.](./analysis/null_analysis.md)**
+
+* **2. Análise de Potenciais Inconsistências**
+    > *(Em desenvolvimento)*
+
+---
+
+## 🛣️ A Jornada Analítica: Etapas do Projeto
+
+A análise seguiu um processo investigativo iterativo, que se mostrou fundamental para a descoberta da real causa do problema.
+
+1.  **ETL e Preparação dos Dados:** Os dados brutos foram tratados, e os "nulos" foram classificados em "Genuínos" e "Ambíguos" (nulos permitidos por regras de negócio).
+2.  **Análise Exploratória Inicial (Geração de Hipóteses):** Utilizando um dashboard em Power BI, a investigação começou explorando a taxa de 14% de nulos. Padrões iniciais, como o "efeito rural" e as disparidades regionais, emergiram como os principais "suspeitos".
+3.  **A Reviravolta Metodológica:** Uma investigação mais aprofundada, motivada por anomalias nos dados (escolas com zero matrículas), levou à análise da variável `Situação de Funcionamento`, revelando que escolas inativas eram responsáveis por mais de 80% dos nulos.
+4.  **Reavaliação e Conclusão:** Com a aplicação do filtro correto (escolas "Em Atividade"), a análise foi refeita, chegando à conclusão final de que a qualidade dos dados das escolas operantes é, na verdade, muito alta (99,31% de completude).
 
 ---
 ## 🔬 Metodologia de Tratamento de Dados
@@ -25,62 +56,7 @@ Para conduzir uma análise de completude precisa, foi crucial diferenciar os tip
 
 * **A Solução:** Através da lógica implementada no ETL, esses "nulos permitidos por regra de negócio" foram identificados e classificados com um valor sentinela (`-100`), recebendo o status de **"Preenchimento Ambíguo"**.
 
-* **O Foco da Análise:** Essa separação permitiu que a análise de qualidade se concentrasse nos **"Nulos Genuínos"** – aqueles campos que deveriam ter sido preenchidos, mas não foram. Os dados de "Preenchimento Ambíguo" foram monitorados para garantir a consistência do ETL, mas não foram o alvo da crítica de qualidade.
-
-
----
-## ⭐ Principais Resultados
-
-### 📊 Análise de Completude
-* O fator mais determinante para a ausência de dados é a localização da escola: zonas rurais apresentam uma taxa de não preenchimento de **23%**, mais que o dobro da encontrada em zonas urbanas (9%). Essa disparidade é ainda mais acentuada em regiões como o Sudeste (41% rural vs. 11% urbano).
-* Existe uma grande variação geográfica e administrativa na qualidade dos dados. Estados como Minas Gerais (29% de nulos) contrastam fortemente com o Paraná (4,5%). Nacionalmente, escolas de gestão privada (16%) e municipal (14%) possuem taxas de nulos significativamente maiores que as estaduais (10%) e federais (2,3%).
-* A concentração de dados faltantes em estratos específicos (rural, certos estados e dependências) aponta para uma fragilidade sistêmica no método de coleta. Isso sugere que a aplicação de um método "tamanho único" para realidades escolares tão diversas pode ser a raiz do problema, pois o sistema atual parece não possuir mecanismos de reforço ou adaptação para os contextos mais, sabidamente, desafiadores (para a completude dos dados).
-
-### ⚠️ Análise de Potenciais Inconsistências
-
-*Em desenvolvimento*
-
-
----
-
-## 🔎 Análises Detalhadas
-
-Os principais achados de cada eixo de análise do projeto estão documentados em arquivos próprios. Estes documentos contêm a exploração visual (dashboards), a validação estatística (notebooks) e a narrativa completa das descobertas.
-
-* **1. Análise de Completude de Dados**
-    > Investigação sobre os padrões e fatores de influência dos dados nulos no Censo Escolar.
-    > 
-    > **[Acesse a análise completa aqui.](./analysis/null_analysis.md)**
-
-* **2. Análise de Potenciais Inconsistências**
-    > Investigação sobre as contradições lógicas entre variáveis preenchidas (em desenvolvimento).
-    > 
-    > **[Acesse a análise completa aqui (em breve).](./analysis/inconsistency_analysis.md)**
-
----
-
-## 🛣️ Etapas do Projeto
-
-O projeto foi estruturado em uma sequência de etapas de ETL (Extração, Transformação e Carga) e Análise, que construíram camadas de dados progressivamente mais ricas para a investigação.
-
-### ✅ Etapas Finalizadas
-1.  **ETL - Camada Trusted**: O script `trusted_zone.py` executou a limpeza e padronização dos dados brutos. Suas principais ações foram a aplicação de **regras de negócio condicionais** para tratar campos vazios e a criação de um **valor sentinela (`-100`)** para diferenciar "não preenchimento esperado" de um dado genuinamente ausente.
-2.  **ETL - Camada Refined (Análise de Completude)**: A partir da camada `Trusted`, o script `refined_zone_for_null_analysis.py` executou uma profunda transformação nos dados. A principal operação foi o **`melt`**, que converteu a tabela de um formato largo para um formato longo. Para lidar com o grande volume de dados de forma eficiente, o processo foi otimizado para baixo uso de memória — uma decisão de arquitetura para contornar o **esgotamento de memória (`Out of Memory`)** — através de:
-     * Leitura do arquivo de origem em `chunks` (pedaços).
-     * Escrita incremental do resultado em um arquivo **Parquet**, via `PyArrow`.
-3.  **Análise Exploratória e Geração de Hipóteses**: Através de um dashboard interativo no `Power BI`, foram explorados os padrões visuais dos dados e geradas as hipóteses iniciais sobre os fatores que influenciam a completude dos dados.
-
-### 🚧 Etapas Em Desenvolvimento
-4.  **Validação Estatística e Inferência**: Utilizando um modelo de Regressão Logística, as hipóteses serão testadas estatisticamente. Esta etapa quantificará o impacto e a significância de cada fator (por exemplo, localização e dependência) na probabilidade de ocorrência de dados nulos, confirmando os achados da fase exploratória, em um `Jupyter Notebooks`.
-5.  **ETL - Camada Refined (Análise de Inconsistências)**: Uma terceira etapa de ETL preparará os dados para a análise de cruzamentos, facilitando a identificação de contradições lógicas entre os campos preenchidos.
-6.  **Análise e Diagnóstico**: A análise dos dados de inconsistência será conduzida em `Jupyter Notebooks`.
-7.  **Visualização de Dados**: Os principais achados da análise de inconsistências serão consolidados em um segundo dashboard interativo.
-
----
-## ✅ Validação e Qualidade do ETL
-Para garantir a integridade dos dados após a complexa transformação de `melt` (que expandiu a base para mais de 90 milhões de linhas), foi criado um script de verificação: `etl_verification_trusted-refined_melted.py`.
-
-Este script compara a contagem de **escolas únicas (`CO_ENTIDADE`)** entre a camada `Trusted` (origem) e a `Refined` (resultado). Ao confirmar que os números são idênticos, o script valida que nenhuma escola foi perdida ou indevidamente duplicada durante o processo de ETL, garantindo a confiabilidade da base de dados usada para a análise. A validação foi desenhada para ser eficiente, lendo apenas as colunas necessárias e evitando o esgotamento de memória.
+* **O Foco da Análise:** Essa separação permitiu que a análise de qualidade se concentrasse nos **"Nulos Genuínos"** – aqueles campos que deveriam ter sido preenchidos, mas não foram.
 
 ---
 ## 🛠️ Tecnologias Utilizadas
@@ -90,11 +66,9 @@ Este script compara a contagem de **escolas únicas (`CO_ENTIDADE`)** entre a ca
 
 * **Principais Bibliotecas Python:**
     * **Manipulação e Processamento de Dados:** Pandas, Numpy, PyArrow
-    * **Análise Estatística e Modelagem:** Scikit-learn, Statsmodels
-    * **Visualização de Dados:** Matplotlib, Seaborn
 
 * **Ambiente de Análise e Ferramentas:**
-    * **Análise Interativa e Modelagem:** Jupyter Notebooks
+    * **Análise Interativa:** Jupyter Notebooks
     * **Dashboards Exploratórios:** Power BI Desktop
 
 ---
@@ -108,23 +82,18 @@ Este script compara a contagem de **escolas únicas (`CO_ENTIDADE`)** entre a ca
     ```bash
     cd qualidade_dados_censo_escolar_2024
     ```
-3.  Instale as dependências (recomenda-se o uso de um ambiente virtual):
+3.  Instale as dependências:
     ```bash
     pip install -r requirements.txt
     ```
-4.  Execute os scripts de ETL na ordem correta, dentro da pasta `scripts/`:
-    * `python trusted_zone.py`
-    * `python refined_zone_for_null_analysis.py`
-    * (Opcional, mas recomendado) `python etl_verification_trusted-refined_melted.py`
-    * (Em breve) `python refined_zone_for_inconsistency_analysis.py`
-5.  Abra os notebooks na pasta `notebooks/` para ver a análise detalhada.
+4.  Execute os scripts na pasta `scripts/` para gerar as camadas de dados.
 
 ---
 
 ## 📂 Organização do repositório
-- `analysis/`: Contém os documentos Markdown com as análises detalhadas de cada eixo do projeto.
-- `data/`: Armazena as bases de dados, desde os arquivos brutos (`raw`) até as camadas tratadas (`trusted`, `refined`).
-- `notebooks/`: Análises exploratórias e estatísticas desenvolvidas em Jupyter.
-- `powerbi/`: Arquivo `.pbix` do Power BI e a pasta com os GIFs utilizados nos documentos de análise.
-- `scripts/`: Pipelines em Python para a criação das camadas de dados e validações.
+- `analysis/`: Contém os documentos Markdown com as análises detalhadas.
+- `data/`: Armazena as bases de dados, das camadas `raw` às `refined`.
+- `notebooks/`: Notebooks utilizados para explorações pontuais.
+- `powerbi/`: Arquivo `.pbix` do Power BI e GIFs.
+- `scripts/`: Pipelines em Python para o ETL.
 - `README.md`: Esta apresentação do projeto.
