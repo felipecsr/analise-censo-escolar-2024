@@ -29,9 +29,7 @@ Esta descoberta muda o paradigma da análise: o principal desafio não é a qual
 A jornada completa da investigação, desde o problema aparente até a descoberta da causa raiz, está documentada no arquivo abaixo.
 
 * **1. Análise de Completude de Dados**
-    > A narrativa da investigação que revelou o impacto das escolas inativas na qualidade percebida dos dados do Censo.
-    >
-    > **[Acesse a análise completa aqui.](./analysis/null_analysis.md)**
+A narrativa da investigação que revelou o impacto das escolas inativas na qualidade percebida dos dados do Censo. **[Acesse a análise completa aqui.](./analysis/null_analysis.md)**
 
 ---
 
