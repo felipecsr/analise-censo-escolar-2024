@@ -22,6 +22,8 @@ Ao isolar o universo de escolas que de fato deveriam reportar dados completos �
 
 Esta descoberta muda o paradigma da análise: o principal desafio não é a qualidade do preenchimento das escolas ativas (que se mostra excelente), mas sim a **interpretação correta do universo de dados**, uma nuance não explicitamente alertada nos manuais de uso público, que pode induzir analistas a erros de avaliação.
 
+![paniel-aba5-status](./powerbi/gifs/aba5.gif)
+
 ---
 
 ## 🔎 Análise Detalhada
